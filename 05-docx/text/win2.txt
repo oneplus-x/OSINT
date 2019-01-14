@@ -1,0 +1,44 @@
+netsh advfirewall set privateprofile state off
+netsh advfirewall firewall add rule name="Open Remote Desktop" protocol=TCP dir=in localport=3389 action=allow
+netsh advfirewall firewall add rule name="UDP ports" protocol=UDP dir=out localport=6000-7000 action=allow
+
+"md con\" or "md lpt1\"
+"rd con\" or "rd lpt1\"
+
+Hibernation
+Windows Registry Editor Version 5.00
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power]
+"HibernateEnabled"=dword:00000001
+
+Windows Registry Editor Version 5.00
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power]
+"HibernateEnabled"=dword:00000000
+
+powercfg -h on
+powercfg -h off
+
+attrib ways2hack +s +h
+attrib ways2hack -s -h
+
+diskpart.exe list volume
+select volume
+remove letter G
+assign letter G
+
+ftp> put tiff-filename filetype=RTF,copies=3,center
+
+cd "\myFiles\projectA"
+ftp 74.120.4.80
+put myFile.doc
+bye
+
+\\192.168.15.1
+
+net use \\Development\myfolder mypassword /user:Administrator
+copy newfile.c \\development\myfolder
+
+net send "John Doe" Let's meet up in 10 minutes
+
+ print /d:LPTx <filename>
+ print /d:COMx <filename>
+ print /d:\\server\printername <filename>

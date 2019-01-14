@@ -1,0 +1,44 @@
+| Domain: https://www.inaproc.lkpp.go.id/
+| IP: 103.13.181.18
+
+| Domain: https://lpse.pemkomedan.go.id/
+| IP: 114.57.36.194
+
+| Domain: https://pemko.pemkomedan.go.id/
+| IP: 182.23.45.16
+| http://lpse.tangerangselatankota.go.id/eproc/rekanan/dataidentitas/
+| SSL Info:        
+| Subject:  /emailAddress=ssl@pemko.pemkomedan.go.id/CN=pemko.pemkomedan.go.id
+| Ciphers:  ECDHE-RSA-AES256-GCM-SHA384
+| Issuer:   /emailAddress=ssl@pemko.pemkomedan.go.id/CN=pemko.pemkomedan.go.id
+
+
+| Crawler Started:
+| Plugin name: FCKeditor upload test v.1 Loaded.
+| Plugin name: Timthumb <= 1.32 vulnerability v.1 Loaded.
+| Plugin name: Upload Form Detect v.1.1 Loaded.
+| Plugin name: Code Disclosure v.1.1 Loaded.
+| Plugin name: E-mail Detection v.1.1 Loaded.
+| Plugin name: External Host Detect v.1.2 Loaded.
+| Plugin name: phpinfo() Disclosure v.1 Loaded.
+| Plugin name: Web Backdoor Disclosure v.1.1 Loaded.
+
+| Dynamic tests:
+| Plugin name: Learning New Directories v.1.2 Loaded.
+| Plugin name: FCKedior tests v.1.1 Loaded.
+| Plugin name: Timthumb <= 1.32 vulnerability v.1 Loaded.
+| Plugin name: Find Backup Files v.1.2 Loaded.
+| Plugin name: Blind SQL-injection tests v.1.3 Loaded.
+| Plugin name: Local File Include tests v.1.1 Loaded.
+| Plugin name: PHP CGI Argument Injection v.1.1 Loaded.
+| Plugin name: Remote Command Execution tests v.1.1 Loaded.
+| Plugin name: Remote File Include tests v.1.2 Loaded.
+| Plugin name: SQL-injection tests v.1.2 Loaded.
+| Plugin name: Cross-Site Scripting tests v.1.2 Loaded.
+| Plugin name: Web Shell Finder v.1.3 Loaded.
+
+| Static tests:
+| Plugin name: Local File Include tests v.1.1 Loaded.
+| Plugin name: Remote Command Execution tests v.1.1 Loaded.
+| Plugin name: Remote File Include tests v.1.1 Loaded.
+

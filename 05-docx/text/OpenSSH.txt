@@ -1,0 +1,25 @@
+Install & Configure OpenSSH
+    sudo pacman -S openssh
+    useradd -m -g users -G games newguy
+    sudo nano /etc/ssh/sshd_config
+
+    Allow TCP forwarding
+    Enable any custom settings that you want if you know what you're doing.
+    sudo rc.d sshd start
+    ssh -p (port you want) newguy@localhost
+	 ssh -ND 9070 <username>@<host IP> -p 6996
+	 
+ wget http://www.thoughtcrime.org/software/tortunnel/tortunnel-0.3.tar.gz
+    tar zxvf tortunnel-0.3.tar.gz
+    cd tortunnel-0.3
+    ./configure
+    sudo make && sudo make install
+	
+	 torproxy -p 5060 -r
+    torproxy -p 5060 -n <ip of exit node>
+    http://localhost:5060
+-OR-
+    127.0.0.1:5060
+	
+	
+	

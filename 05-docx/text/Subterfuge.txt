@@ -1,0 +1,14 @@
+sudo apt-get install asleap
+
+freeradius-server
+wget ftp://ftp.freeradius.org/pub/freeradius/freeradius-server-3.0.17.tar.gz
+wget ftp://ftp.freeradius.org/pub/freeradius/freeradius-server-3.0.17.tar.gz.sig
+
+Subterfuge
+git clone https://github.com/Jubei-Mitsuyoshi/aaa-subterfuge.git
+cd /subterfuge
+sudo python install.py
+sudo ln -s /usr/local/bin/node /usr/bin/node
+sudo ln -s /usr/local/lib/node /usr/lib/node
+sudo ln -s /usr/local/bin/npm /usr/bin/npm
+sudo ln -s /usr/local/bin/node-waf /usr/bin/node-waf

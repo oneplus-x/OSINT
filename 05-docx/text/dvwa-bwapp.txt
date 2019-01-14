@@ -1,0 +1,61 @@
+rm /etc/apache2/sites-enabled/000-default*
+nano /etc/apache2/sites-available/dvwa.conf
+
+Copy/Paste the below configuration and press CTRL+X and then y to save the file.
+
+<VirtualHost *:80>
+    ServerAdmin webmaster@localhost
+    DocumentRoot /var/www/html/dvwa
+<VirutalHost>
+
+Then we will enable the site to be hosted by apache by linking to enabled-sites directory:
+
+ln -s /etc/apache2/sites-available/dvwa.conf /etc/apache2/sites-enabled/
+ln -s
+
+git clone https://github.com/ethicalhack3r/DVWA.git
+mv DVWA/* /var/www/html/dvwa/
+ls /var/www/html/dvwa
+chmod -R 777 /var/www/html/dvwa/
+mysql -u root
+mysql> CREATE DATABASE dvwa;
+mysql> CREATE USER 'dvwauser'@'localhost' IDENTIFIED BY 'password';
+mysql> GRANT ALL ON dvwa.* TO 'dvwauser'@'localhost';
+mysql> flush privileges;
+mysql> exit;
+gedit /var/www/html/dvwa/config/config.inc.php.dist
+sudo apt-get install php7.2-gd
+nano /etc/php/7.2/apache2/php.ini
+php.ini
+service apache2 start
+
+chmod -R 755 /var/www/html/bWAPP
+sudo chmod 777 passwords/
+sudo chmod 777 images/
+sudo chmod 777 documents/
+sudo chmod 777 logs/
+
+chmod -R 755 /var/www/dvwa
+subl /var/www/dvwa/config/config.inc.php
+service mysql start
+mysql -u root -p
+mysql> create database dvwa
+service apache2 start
+http://localhost/dvwa/setup.php
+
+https://sourceforge.net/projects/bwapp/files/bWAPP/
+https://sourceforge.net/projects/bwapp/files/bee-box/
+
+wget http://sourceforge.net/projects/themole/files/themole-0.2.6/themole-0.2.6-lin-src.tar.gz/download
+tar xzvf themole-0.2.6-lin-src.tar.gz
+cd themole-0.2.6
+
+http://127.0.0.1:xxxx/vulnerable/index.php/?id=1
+
+sudo apt-get install python3 python3-lxml
+wget http://python.org/ftp/python/3.3.2/Python-3.3.2.tgz && tar -xvf Python-3.3.2.tgz
+cd Python-3.3.2
+./configure
+make
+sudo make altinstall
+sudo apt-get install idle3

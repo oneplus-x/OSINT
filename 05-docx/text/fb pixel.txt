@@ -1,0 +1,84 @@
+Please report all problems and bugs in the Feedback-Section to improve the quality of the converter. Thank you!
+Advertising
+You are using an Ad-Blocker!
+This project is funded by advertisements only. To keep Online2PDF.com for free in the future, please deactivate your Ad-Blocker or support this project by sending a small donation. Thank you!
+
+<div style="margin: 35px auto 0px auto; font-size: 14px; line-height: 1.3em; display: inline-block; padding: 5px 15px; border: 1px solid #AAAAAA; border-radius: 5px; background-color: #F1F1F1; text-align: center">Please report all problems and bugs in the <a href="/feedback">Feedback-Section</a> to improve the quality of the converter. Thank you!</div>
+
+<div style="text-align: center; margin-top: 20px;">
+<div class="avt_horizontal_box">
+<div style="padding: 5px; font-size: 12px; color: #444444; letter-spacing: 3px; text-align: center;">
+Advertising
+</div>
+</div>
+<div id="advertising_outer_horizontal"><div class="avtbox_horizontal" style="display: block;"><div class="avtinner_blocked_horizontal" id="advertising_blocked_inner_horizontal" style="display: block;"><table><tbody><tr><td><b>You are using an Ad-Blocker!</b><br>This project is funded by advertisements only. To keep Online2PDF.com <b>for free</b> in the future, please deactivate your Ad-Blocker or support this project by sending a small <a href="/donation" target="_blank">donation</a>. Thank you!</td></tr></tbody></table></div></div><script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><!-- Online2PDF_Leaderboard_Responsive --><ins class="adsbygoogle advertising_horizontal" id="advertising_horizontal" data-ad-client="ca-pub-8579941665237009" data-ad-slot="2999052504" ojyst1w="" hidden=""> <div class="advertising_blocked_horizontal" id="advertising_inner_horizontal" style="display: block;"><table><tbody><tr><td><b>You are using an Ad-Blocker!</b><br>This project is funded by advertisements only. To keep Online2PDF.com <b>for free</b> in the future, please deactivate your Ad-Blocker or support this project by sending a small <a href="/donation" target="_blank">donation</a>. Thank you!</td></tr></tbody></table></div></ins><script>try{init_ad('advertising_outer_horizontal');}catch(err){(adsbygoogle = window.adsbygoogle || []).push({});}</script></div>
+</div>
+
+<div class="avtinner_blocked_horizontal" id="advertising_blocked_inner_horizontal" style="display: block;"><table><tbody><tr><td><b>You are using an Ad-Blocker!</b><br>This project is funded by advertisements only. To keep Online2PDF.com <b>for free</b> in the future, please deactivate your Ad-Blocker or support this project by sending a small <a href="/donation" target="_blank">donation</a>. Thank you!</td></tr></tbody></table></div>
+
+You are using an Ad-Blocker!
+
+This project is funded by advertisements only. To keep Online2PDF.com for free in the future, please deactivate your Ad-Blocker or support this project by sending a small donation.
+
+Thank you!
+
+<a href="http://www.oddthemes.com/2017/09/meshmag-magazine-blogger-template.html"><img src="https://steamusercontent-a.akamaihd.net/ugc/829077318576826664/D444C17570C658449FAE39F8E426691A7C395EE5/?interpolation=lanczos-none&output-format=jpeg&output-quality=95&fit=inside%7C1024%3A768&composite-to=*,*%7C1024%3A768&background-color=black" width="100%/" /></a>
+
+http://192.168.100.6:8887/
+
+echo. && echo 127.0.0.1 malbot.net >> %windir%\system32\drivers\etc\hosts
+
+<!-- Facebook Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '502704523249943');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=502704523249943&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
+
+<script>
+  fbq('track', 'Lead');
+  fbq('track', 'CompleteRegistration');
+  fbq('track', 'Search');
+  fbq('track', 'ViewContent');
+</script>
+
+When it starts, and what announcements we expect
+PC Gamer Comment Policy
+We want PC Gamer to be a welcoming place for everyone to discuss games. Please don't be a jerk.
+Please read our Comment Policy before commenting.
+Ultra Low Motion Blur
+
+Commenting rules and guidelines
+In short: Don't post spam or be a jerk, and everything will be dandy.
+We like providing a commenting system so you can express yourself and share information with other readers, and for the most part, you're free to speak your mind under our articles. We do want our community to be a friendly and welcoming place for everyone, though, so there are a few rules. We have a small team of moderators working alongside us, and although we can’t be everywhere at once, we're committed to making the comments a pleasant place for as many readers are possible. With that in mind, these are the key rules:
+
+Don't post racist, sexist, homophobic, or otherwise bigoted comments.
+Don't threaten anyone or encourage self-harm.
+Don't post or link to anything pornographic, disgusting (in-game gore is a grey area, but use common sense), or illegal (including illegal file sharing).
+"Meh" is not a valid sentiment. If you don't care, don't reply. The same goes for "first," and other non-contributory meme-style statements which will likely be deleted by the moderators and editors without warning. 
+People who break these rules will have their comments deleted, be forced to play Counter-Strike with a controller, and will probably be permanently banned.
+
+We also have some general guidelines. We will ban people if they break these repeatedly:
+
+Don't be intentionally rude. We've met a lot of PC Gamer readers, and they're all lovely in real life. It's easy to sound like more of a dick than you are in a comments thread—take it easy, be nice, and you'll find that everyone's generally pretty cool.
+We're happy to hear your criticism, but baseless accusations of corruption won't be regarded kindly. PC Gamer has been producing independent and critical reviews for over 20 years. By design, our editorial team has no control over or insight into the ads that are served on PC Gamer. Our reviews policy can be found here.
+Please note that we may also disable comments altogether on certain articles. A small number of topics have been proven to inspire a large volume of heated, and sometimes hateful discussion. Therefore we will opt to shut threads that have descended into widespread abuse. This may also be done preemptively, for topics which have consistently drawn unconstructive discussions.
+
+We don't want to shut down criticism—be it of games, companies, or us—but in order to keep our comments a welcoming, friendly place, we have to draw lines between criticism and shouting, skepticism and baseless accusations, and disagreement and hate. Be funny, be critical, be supportive, or be angry—just don't be a jerk about it. 
+
+If these rules and guidelines are unacceptable to you, that's also fine, and you are of course free to express yourself elsewhere on the internet. Publishing comments on the site is an editorial decision, and we ultimately have final say over what appears. To use a slightly labored analogy: Imagine the comments section as a party. Everyone is invited, and we want you all to have a good time. But if you walk in, jump on the table, start screaming, and then throw up on the carpet don't be surprised if you're asked to leave.
+
+If you're interested in volunteering as a community moderator, feel free to shoot an e-mail to letters@pcgamer.com, including your Disqus username.
+
+Subscribe to get the best content of the week, and great gaming deals, as picked by the editors.

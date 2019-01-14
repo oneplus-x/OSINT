@@ -1,0 +1,3 @@
+sudo apt remove libreoffice5*
+cd /tmp/LibreOffice*/DEBS
+sudo dpkg -i ./*.deb

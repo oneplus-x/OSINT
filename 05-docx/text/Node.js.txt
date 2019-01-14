@@ -1,0 +1,81 @@
+Installing Node.js on Kali Linux
+Most of the guides I’ve found on how to do this are fairly involved, requiring you to build from source and install without a .dpkg, which is messy if you ever want to change your installation. Installing Node.js is the same as for Debian:
+
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+sudo apt install -y nodejs
+The package build-essential is required for compiling and installing native packages, but it’s already included in Kali’s base image.
+
+What are NodeJs & NPM
+NodeJs to put it simply is an open-source, cross-platform runtime environment for developing server-side web application.
+
+Npm is the a package manager for javascript using to install and run things Such as Grunt
+
+For more information on NodeJs or NPM follow the links in the more reading section of this post.
+
+How to install using git
+I usually find the easiest way to install both NodeJs and NPM on linux systems is straight from git. It provides the latest version and allows for patches to node and npm to be updated using pull requests and more from git, either way that’s out of scope for this tutorial so keeping it simple.
+
+Open up a terminal and type the following
+
+# Make our directory to keep it all in
+
+mkdir  ~/local
+
+# Add the location to our path so that we can call it with bash
+
+echo ‘export PATH=$HOME/local/bin:$PATH’ >> ~/.bashrc
+
+Now we can start with downloading and compiling
+
+NodeJs First
+
+git clone git://github.com/nodejs/node.git
+
+cd node
+
+./configure –-prefix=~/local
+
+make install
+
+cd ..
+
+Now NPM (Node Package Manager)
+
+git clone git://github.com/npm/npm.git
+
+cd npm
+
+make install
+
+cd ../
+
+and that’s it we are done . . .
+
+Testing our installation
+Open up a command prompt and type
+
+node –version
+
+npm -v
+
+Both should return a version number at the time of writing this I got npm v3.5.4 and NodeJs v6.0.0-pre
+
+Further Reading
+http://nodeJs.org – The NodeJs Official site
+
+http://npmjs.com – The Node Package manager site
+
+# Verify that you have all required tools
+sudo apt-get install python g++ make checkinstall fakeroot
+# Create tmp dir and switch to it
+src=$(mktemp -d) && cd $src
+# Download the latest version of Node
+wget -N http://nodejs.org/dist/node-latest.tar.gz
+# Extract the content of the tar file
+tar xzvf node-latest.tar.gz && cd node-v*
+# Run configuration
+./configure
+# Create .deb for Node
+sudo fakeroot checkinstall -y --install=no --pkgversion $(echo $(pwd) | sed -n -re's/.+node-v(.+)$/\1/p') make -j$(($(nproc)+1)) install
+# Replace [node_*] with the name of the generated .deb package of the previous step
+sudo dpkg -i node_*

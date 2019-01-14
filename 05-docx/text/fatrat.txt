@@ -1,0 +1,7 @@
+chmod +x setup.sh && ./setup.sh
+
+Extract The lalin-master to your home or another folder
+chmod +x fatrat
+chmod +x powerfull.sh
+And run the tools ( ./fatrat )
+Easy to Use just input your number

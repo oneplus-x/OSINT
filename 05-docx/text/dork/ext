@@ -1,0 +1,44 @@
+ext:asa | ext:bak intext:uid intext:pwd -"uid..pwd" database | server | dsn
+ext:inc "pwd=" "UID="
+ext:ini eudora.ini
+ext:ini Version=4.0.0.4 password
+ext:passwd -intext:the -sample -example
+ext:txt inurl:unattend.txt
+ext:yml database inurl:config
+ext:cgi intitle:"control panel" "enter your owner password to continue!"
+ext:(doc | pdf | xls | txt | ps | rtf | odt | sxw | psw | ppt | pps | xml) (intext:confidential salary | intext:"budget approved") inurl:confidential
+ext:asp inurl:pathto.asp
+ext:ccm ccm -catacomb
+ext:CDX CDX
+ext:cgi inurl:editcgi.cgi inurl:file=
+ext:conf inurl:rsyncd.conf -cvs -man
+ext:conf NoCatAuth -cvs
+ext:dat bpk.dat
+ext:gho gho
+ext:ics ics
+ext:ini intext:env.ini
+ext:jbf jbf
+ext:ldif ldif
+ext:log "Software: Microsoft Internet Information Services *.*"
+ext:mdb inurl:*.mdb inurl:fpdb shop.mdb
+ext:nsf nsf -gov -mil
+ext:plist filetype:plist inurl:bookmarks.plist
+ext:pqi pqi -database
+ext:reg "username=*" putty
+ext:txt "Final encryption key"
+ext:txt inurl:dxdiag
+ext:vmdk vmdk
+ext:vmx vmx
+ext:cfg radius.cfg
+ext:cgi intext:"nrg-" " This web page was created on "
+ext:asa | ext:bak intext:uid intext:pwd -"uid..pwd" database | server | dsn
+ext:inc "pwd=" "UID="
+ext:ini eudora.ini
+ext:ini Version=4.0.0.4 password
+ext:passwd -intext:the -sample -example
+ext:txt inurl:unattend.txt
+ext:yml database inurl:config
+ext:cgi intitle:"control panel" "enter your owner password to continue!"
+site:edu admin grades
+site:www.mailinator.com inurl:ShowMail.do
+site:netcraft.com intitle:That.Site.Running Apache

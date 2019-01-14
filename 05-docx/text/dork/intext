@@ -1,0 +1,95 @@
+intext:"error in your SQL syntax" +site:mm
+intext:"mysql_num_rows()" +site:mm
+intext:"mysql_fetch_array()" +site:mm
+intext:"Error Occurred While Processing Request" +site:mm
+intext:"Server Error in '/' Application" +site:mm
+intext:"Microsoft OLE DB Provider for ODBC Drivers error" +site:mm
+intext:"Invalid Querystring" +site:mm
+intext:"OLE DB Provider for ODBC" +site:mm
+intext:"VBScript Runtime" +site:mm
+intext:"ADODB.Field" +site:mm
+intext:"BOF or EOF" +site:mm
+intext:"ADODB.Command" +site:mm
+intext:"JET Database" +site:mm
+intext:"mysql_fetch_row()" +site:mm
+intext:"Syntax error" +site:mm
+intext:"include()" +site:mm
+intext:"mysql_fetch_assoc()" +site:mm
+intext:"mysql_fetch_object()" +site:mm
+intext:"mysql_numrows()" +site:mm
+intext:"GetArray()" +site:mm
+intext:"FetchRow()" +site:mm
+intext:"Input string was not in a correct format" +site:mm
+intext:"enable password 7"
+intext:"enable secret 5 $"
+intext:"EZGuestbook"
+intext:"Web Wiz Journal"
+intext:""BiTBOARD v2.0" BiTSHiFTERS Bulletin Board"
+intext:"Fill out the form below completely to change your password and user name. If new username is left blank, your old one will be assumed." -edu
+intext:"Mail admins login here to administrate your domain."
+intext:"Master Account" "Domain Name" "Password" inurl:/cgi-bin/qmailadmin
+intext:"Master Account" "Domain Name" "Password" inurl:/cgi-bin/qmailadmin
+intext:"Storage Management Server for" intitle:"Server Administration"
+intext:"Welcome to" inurl:"cp" intitle:"H-SPHERE" inurl:"begin.html" -Fee
+intext:"vbulletin" inurl:admincp
+intext:"Session Start * * * *:*:* *" filetype:log
+intext:"Tobias Oetiker" "traffic analysis"
+intext:(password | passcode) intext:(username | userid | user) filetype:csv
+intext:gmail invite intext:http://gmail.google.com/gmail/a
+intext:SQLiteManager inurl:main.php
+intext:ViewCVS inurl:Settings.php
+intext:"Ipswitch WhatsUp Professional 2005 (SP1)" "Ipswitch, Inc"
+intext:"Error Message : Error loading required libraries."
+intext:"Warning: Failed opening" "on line" "include_path"
+intext:"Warning: * am able * write ** configuration file" "includes/configure.php" -
+intext:"Error Message : Error loading required libraries."
+intext:"Warning: Failed opening" "on line" "include_path"
+intext:"Welcome to the Web V.Networks" intitle:"V.Networks [Top]" -filetype:htm
+intext:"Session Start * * * *:*:* *" filetype:log
+intext:"Tobias Oetiker" "traffic analysis"
+intext:(password | passcode) intext:(username | userid | user) filetype:csv
+intext:gmail invite intext:http://gmail.google.com/gmail/a
+intext:SQLiteManager inurl:main.php
+intext:ViewCVS inurl:Settings.php
+intext:""BiTBOARD v2.0" BiTSHiFTERS Bulletin Board"
+intext:"Fill out the form below completely to change your password and user name. If new username is left blank, your old one will be assumed." -edu
+intext:"Mail admins login here to administrate your domain."
+intext:"Master Account" "Domain Name" "Password" inurl:/cgi-bin/qmailadmin
+intext:"Master Account" "Domain Name" "Password" inurl:/cgi-bin/qmailadmin
+intext:"Storage Management Server for" intitle:"Server Administration"
+intext:"Welcome to" inurl:"cp" intitle:"H-SPHERE" inurl:"begin.html" -Fee
+intext:"vbulletin" inurl:admincp
+intext:"enable password 7"
+intext:"enable secret 5 $"
+intext:"EZGuestbook"
+intext:"Web Wiz Journal"
+intext:"Welcome to the Web V.Networks" intitle:"V.Networks [Top]" -filetype:htm
+intext:"Warning: * am able * write ** configuration file" "includes/configure.php" -
+intext:"error in your SQL syntax" +site:mm
+intext:"mysql_num_rows()" +site:mm
+intext:"mysql_fetch_array()" +site:mm
+intext:"Error Occurred While Processing Request" +site:mm
+intext:"Server Error in '/' Application" +site:mm
+intext:"Microsoft OLE DB Provider for ODBC Drivers error" +site:mm
+intext:"Invalid Querystring" +site:mm
+intext:"OLE DB Provider for ODBC" +site:mm
+intext:"VBScript Runtime" +site:mm
+intext:"ADODB.Field" +site:mm
+intext:"BOF or EOF" +site:mm
+intext:"ADODB.Command" +site:mm
+intext:"JET Database" +site:mm
+intext:"mysql_fetch_row()" +site:mm
+intext:"Syntax error" +site:mm
+intext:"include()" +site:mm
+intext:"mysql_fetch_assoc()" +site:mm
+intext:"mysql_fetch_object()" +site:mm
+intext:"mysql_numrows()" +site:mm
+intext:"GetArray()" +site:mm
+intext:"FetchRow()" +site:mm
+intext:"Input string was not in a correct format" +site:mm
+intext:"Mail admins login here to administrate your domain."
+intext:"Master Account" "Domain Name" "Password" inurl:/cgi-bin/qmailadmin
+intext:"Master Account" "Domain Name" "Password" inurl:/cgi-bin/qmailadmin
+intext:"Storage Management Server for" intitle:"Server Administration"
+intext:"Welcome to" inurl:"cp" intitle:"H-SPHERE" inurl:"begin.html" -Fee
+intext:"vbulletin" inurl:admincp

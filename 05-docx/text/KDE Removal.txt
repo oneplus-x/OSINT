@@ -1,0 +1,162 @@
+sudo apt-get install kali-linux-full 
+apt-get update && apt-get dist-upgrade
+OR
+apt-get update
+apt-get dist-upgrade
+reboot
+
+apt-get install gnome-tweak tool
+dpkg --configure -a
+apt-get -f install
+
+dd if=kali-linux-1.0.8-amd64.iso of=/dev/sdb bs=1M
+dd if=kali-linux-1.0.8-amd64.iso of=/dev/sdb bs=16M
+
+wget -q -O - https://www.kali.org/archive-key.asc | gpg --import
+gpg --keyserver hkp://keys.gnupg.net --recv-key 7D8D0BF6
+gpg --fingerprint 7D8D0BF6
+gpg --verify SHA256SUMS.gpg SHA256SUMS
+61bc17ee83ffa12e674af35503181bb336e943ccefac90805807f4bf0137e4b2
+
+----
+## XFCE Desktop ##
+----
+# How to install XFCE Desktop Environment in Kali Linux:
+Code:
+```apt-get install kali-defaults kali-root-login desktop-base xfce4 xfce4-places-plugin xfce4-goodies```
+
+# How to remove XFCE in Kali Linux:
+Code:
+
+ apt-get remove xfce4 xfce4-places-plugin xfce4-goodies
+
+----
+## KDE Desktop ##
+----
+# How to install KDE Plasma Desktop Environment in Kali Linux:
+Code:
+
+ apt-get install kali-defaults kali-root-login desktop-base kde-plasma-desktop
+
+# How to install Netbook KDE Plasma Desktop Environment in Kali Linux:
+Code:
+
+ apt-get install kali-defaults kali-root-login desktop-base kde-plasma-netbook
+
+# How to install Standard Debian selected packages and frameworks in Kali Linux:
+Code:
+
+ apt-get install kali-defaults kali-root-login desktop-base kde-standard
+
+# How to install KDE Full Install in Kali Linux:
+Code:
+
+ apt-get install kali-defaults kali-root-login desktop-base kde-full
+
+# How to remove KDE on Kali Linux:
+Code:
+
+ apt-get remove kde-plasma-desktop kde-plasma-netbook kde-standard
+
+----
+## LXDE Desktop ##
+----
+# How to install LXDE Desktop Environment in Kali Linux:
+Code:
+
+ apt-get install lxde-core lxde kali-defaults kali-root-login desktop-base
+
+# How to remove LXDE on Kali Linux:
+Code:
+
+ apt-get remove lxde-core lxde
+
+----
+## GNOME Desktop ##
+----
+# How to install GNOME on Kali Linux:
+Code:
+
+ apt-get install gnome-core kali-defaults kali-root-login desktop-base
+
+# How to remove GNOME on Kali Linux:
+Code:
+
+ apt-get remove gnome-core
+
+----
+## Cinnamon Desktop ##
+----
+# How to install Cinnamon Desktop Environment in Kali Linux:
+Code:
+
+ apt-get install kali-defaults kali-root-login desktop-base cinnamon
+
+# How to remove Cinnamon Desktop Environment in Kali Linux:
+Code:
+
+ apt-get remove cinnamon
+
+----
+## MATE Desktop ##
+----
+# How to install MATE Desktop Environment in Kali Linux:
+Code:
+
+ echo "deb http://repo.mate-desktop.org/debian wheezy main" >> /etc/apt/sources.list && apt-get update
+
+Code:
+
+ apt-get --yes --quiet --allow-unauthenticated install mate-archive-keyring
+
+# This installs the base packages
+Code:
+
+ apt-get install kali-defaults kali-root-login desktop-base mate-core
+
+# Or this to install mate-core and more extras
+Code:
+
+ apt-get install kali-defaults kali-root-login desktop-base mate-desktop-environment
+
+# Or this to install mate-core + mate-desktop-environment and even more extras.
+Code:
+
+ apt-get install kali-defaults kali-root-login desktop-base mate-desktop-environment-extra
+
+# How to remove MATE Desktop Environment in Kali Linux:
+Code:
+
+ apt-get remove mate-core
+
+Now the only problem is MATE doesn't show the nice Kali Linux Menu. Fix posted by Silver Moon
+
+To fix this edit the following file.
+Code:
+
+ leafpad /etc/xdg/menus/mate-applications.menu
+
+In the file go down to the section named Internet and add the following line
+HTML Code:
+
+<!-- Kali Linux Menu -->
+<MergeFile type="path">applications-merged/kali-applications.menu</MergeFile>
+
+So it should look something like this
+HTML Code:
+
+.....
+ <!-- Internet -->
+  <Menu>
+    <Name>Internet</Name>
+    <Directory>mate-network.directory</Directory>
+    <Include>
+      <And>
+        <Category>Network</Category>
+      </And>
+    </Include>
+  </Menu>   <!-- End Internet -->
+<!-- Kali Linux  -->    
+  <MergeFile type="path">applications-merged/kali-applications.menu</MergeFile>
+
+

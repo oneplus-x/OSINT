@@ -1,0 +1,59 @@
+-----
+
+# Change this to the path where you keep the desired background image
+$imagePath = '(Path to Image, include single quotes)'
+
+$newImagePath = [System.IO.Path]::GetDirectoryName($imagePath) + '\' + (New-Guid).Guid + [System.IO.Path]::GetExtension($imagePath)
+Copy-Item $imagePath $newImagePath
+[Windows.System.UserProfile.LockScreen,Windows.System.UserProfile,ContentType=WindowsRuntime] | Out-Null
+Add-Type -AssemblyName System.Runtime.WindowsRuntime
+$asTaskGeneric = ([System.WindowsRuntimeSystemExtensions].GetMethods() | ? { $_.Name -eq 'AsTask' -and $_.GetParameters().Count -eq 1 -and $_.GetParameters()[0].ParameterType.Name -eq 'IAsyncOperation`1' })[0]
+Function Await($WinRtTask, $ResultType) {
+    $asTask = $asTaskGeneric.MakeGenericMethod($ResultType)
+    $netTask = $asTask.Invoke($null, @($WinRtTask))
+    $netTask.Wait(-1) | Out-Null
+    $netTask.Result
+}
+Function AwaitAction($WinRtAction) {
+    $asTask = ([System.WindowsRuntimeSystemExtensions].GetMethods() | ? { $_.Name -eq 'AsTask' -and $_.GetParameters().Count -eq 1 -and !$_.IsGenericMethod })[0]
+    $netTask = $asTask.Invoke($null, @($WinRtAction))
+    $netTask.Wait(-1) | Out-Null
+}
+[Windows.Storage.StorageFile,Windows.Storage,ContentType=WindowsRuntime] | Out-Null
+$image = Await ([Windows.Storage.StorageFile]::GetFileFromPathAsync($newImagePath)) ([Windows.Storage.StorageFile])
+AwaitAction ([Windows.System.UserProfile.LockScreen]::SetImageFileAsync($image))
+Remove-Item $newImagePath
+
+----------------
+
+Here is the Regedit to Change Login Screen
+
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\LogonUI\Creative\S-1-0-0]
+"RotatingLockScreenEnabled"=dword:00000000
+"LockImageFlags"=dword:00000000
+"LockScreenOptions"=dword:00000000
+"CreativeId"=""
+"PortraitAssetPath"="(Path to Image, include double quotes, remember to use \\ in between folders)"
+"LandscapeAssetPath"="(Path to Image, include double quotes, remember to use \\ in between folders)"
+
+---------------
+
+Here is the logon bat file
+
+CLS
+@echo off
+
+regedit /S (insert path to .reg file here)
+
+
+IF NOT EXIST (Local Path storing image)  (
+mkdir (Local Path storing image)
+xcopy (From path) (Local Path storing image) /R /Y /I
+) ELSE ECHO Applying Lock Screen
+
+Powershell.exe -executionpolicy remotesigned -File  (Path to ps1 file)
+Exit
+
+EXIT

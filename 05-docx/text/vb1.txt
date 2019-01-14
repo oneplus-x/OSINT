@@ -1,0 +1,299 @@
+Open the hosts
+127.0.0.1 facebook.com
+127.0.0.1 www.facebook.com
+127.0.0.1 youtube.com
+127.0.0.1 www.youtube.com
+
+Redirect
+74.125.236.72 friendster.com
+74.125.236.72 www.friendster.com
+
+secpol.msc
+Local Policies
+Security Options
+Interactive logon: Message text for users attempting to log on
+Local Policy Setting
+Interactive logon: Message title for users attempting to log on
+Local Policy Setting
+
+"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\LogonUI\LastLoggedonUser"
+
+strComputer = "."
+usbdrive = InputBox ("Enter the USB Drive Letter")
+Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\" & strComputer & "\root\cimv2")
+str = ""
+Set colItems = objWMIService.ExecQuery("SELECT * FROM Win32_LogicalDisk Where DeviceID ='" & usbdrive & ":'")
+For Each objItem In colItems
+   SerialNumber = objItem.VolumeSerialNumber
+   DriveType = objItem.Description
+   FileSystem = objItem.FileSystem
+   FreeSpace = (objItem.FreeSpace / 1048576)
+        FreeSpace=Round(FreeSpace,2)
+   TotalSize = (objItem.Size / 1048576)
+        TotalSize=Round(TotalSize,2)
+
+Next
+
+tmp = inputBox ("Drive Type:  " & DriveType & vbNewLine & "File System:  " & FileSystem & vbNewLine & "Free Space:  " & FreeSpace & "   MB"  & vbNewLine & "Total Size:  " & TotalSize & "   MB" , "USB Drive Serial Number",SerialNumber)
+
+on error resume next
+strComputer=InputBox ("Enter the computer name of the server you'd like to query for Service Tag")
+Set objWMIservice = GetObject("winmgmts:\\" & strComputer & "\root\cimv2")
+set colitems = objWMIservice.ExecQuery("Select * from Win32_BIOS",,48)
+For each objitem in colitems
+Wscript.echo "Dell Service Tag: " & objitem.serialnumber
+Next
+
+' Hilltop Lab web site - http://www.rlmueller.net
+
+Option Explicit
+
+Dim objRootDSE, strConfig, adoConnection, adoCommand, strQuery
+Dim adoRecordset, objDC
+Dim strDNSDomain, objShell, lngBiasKey, lngBias, k, arrstrDCs()
+Dim strDN, dtmDate, objDate, strUser, strNTName
+Dim objList1, objList2, objList3, j, intBadCount
+Dim strBase, strFilter, strAttributes, objWinNTUser
+Dim objTrans, strNetBIOSDomain, objDomain, arrstrNTNames()
+Dim lngHigh, lngLow
+
+‘ Constants for the NameTranslate object.
+Const ADS_NAME_INITTYPE_GC = 3
+Const ADS_NAME_TYPE_NT4 = 3
+Const ADS_NAME_TYPE_1779 = 1
+
+‘ Determine DNS domain name.
+Set objRootDSE = GetObject(“LDAP://RootDSE”)
+strDNSDomain = objRootDSE.Get(“defaultNamingContext”)
+
+‘ Use the NameTranslate object to convert the DNS domain name
+‘ to the NetBIOS domain name.
+Set objTrans = CreateObject(“NameTranslate”)
+objTrans.Init ADS_NAME_INITTYPE_GC, “”
+objTrans.Set ADS_NAME_TYPE_1779, strDNSDomain
+strNetBIOSDomain = objTrans.Get(ADS_NAME_TYPE_NT4)
+‘ Remove trailing backslash.
+strNetBIOSDomain = Left(strNetBIOSDomain, Len(strNetBIOSDomain) – 1)
+
+‘ Find locked out user accounts in domain
+‘ create array of sAMAccountName’s
+Set objDomain = GetObject(“WinNT://” & strNetBIOSDomain)
+objDomain.Filter = Array(“user”)
+k = 0
+For Each objWinNTUser In objDomain
+If (objWinNTUser.IsAccountLocked = True) Then
+ReDim Preserve arrstrNTNames(k)
+arrstrNTNames(k) = objWinNTUser.name
+k = k + 1
+End If
+Next
+
+If (k = 0) Then
+Wscript.Echo “No user accounts locked out in domain”
+Wscript.Quit
+End If
+
+‘ Use dictionary objects to track latest badPasswordTime,
+‘ badPwdCount, and Domain Controller for each locked out user.
+Set objList1 = CreateObject(“Scripting.Dictionary”)
+objList1.CompareMode = vbTextCompare
+Set objList2 = CreateObject(“Scripting.Dictionary”)
+objList2.CompareMode = vbTextCompare
+Set objList3 = CreateObject(“Scripting.Dictionary”)
+objList3.CompareMode = vbTextCompare
+
+‘ Obtain local Time Zone bias from machine registry.
+‘ This bias changes with Daylight Savings Time.
+Set objShell = CreateObject(“Wscript.Shell”)
+lngBiasKey = objShell.RegRead(“HKLM\System\CurrentControlSet\Control\” _
+& “TimeZoneInformation\ActiveTimeBias”)
+If (UCase(TypeName(lngBiasKey)) = “LONG”) Then
+lngBias = lngBiasKey
+ElseIf (UCase(TypeName(lngBiasKey)) = “VARIANT()”) Then
+lngBias = 0
+For k = 0 To UBound(lngBiasKey)
+lngBias = lngBias + (lngBiasKey(k) * 256^k)
+Next
+End If
+
+‘ Determine configuration context.
+strConfig = objRootDSE.Get(“configurationNamingContext”)
+
+‘ Use ADO to search Active Directory for ObjectClass nTDSDSA.
+‘ This will identify all Domain Controllers.
+Set adoCommand = CreateObject(“ADODB.Command”)
+Set adoConnection = CreateObject(“ADODB.Connection”)
+adoConnection.Provider = “ADsDSOObject”
+adoConnection.Open = “Active Directory Provider”
+adoCommand.ActiveConnection = adoConnection
+
+strBase = “<LDAP://” & strConfig & “>”
+strFilter = “(objectClass=nTDSDSA)”
+strAttributes = “AdsPath”
+strQuery = strBase & “;” & strFilter & “;” & strAttributes & “;subtree”
+
+adoCommand.CommandText = strQuery
+adoCommand.Properties(“Page Size”) = 100
+adoCommand.Properties(“Timeout”) = 60
+adoCommand.Properties(“Cache Results”) = False
+
+Set adoRecordset = adoCommand.Execute
+
+‘ Enumerate parent objects of class nTDSDSA. Save Domain Controller
+‘ DNS host names in dynamic array arrstrDCs.
+k = 0
+Do Until adoRecordset.EOF
+Set objDC = _
+GetObject(GetObject(adoRecordset.Fields(“AdsPath”).Value).Parent)
+ReDim Preserve arrstrDCs(k)
+arrstrDCs(k) = objDC.DNSHostName
+k = k + 1
+adoRecordset.MoveNext
+Loop
+adoRecordset.Close
+
+‘ Use ADO to retrieve all user objects from each Domain Controller.
+strFilter = “(&(objectCategory=person)(objectClass=user))”
+strAttributes = “distinguishedName,sAMAccountName,” _
+& “badPasswordTime,badPwdCount”
+For k = 0 To Ubound(arrstrDCs)
+strBase = “<LDAP://” & arrstrDCs(k) & “/” & strDNSDomain & “>”
+strQuery = strBase & “;” & strFilter & “;” & strAttributes _
+& “;subtree”
+adoCommand.CommandText = strQuery
+On Error Resume Next
+Set adoRecordset = adoCommand.Execute
+If (Err.Number <> 0) Then
+On Error GoTo 0
+Wscript.Echo “Domain Controller not available: ” & arrstrDCs(k)
+Else
+On Error GoTo 0
+Do Until adoRecordset.EOF
+strNTName = adoRecordset.Fields(“sAMAccountName”).Value
+‘ Check each user to see if in array of locked out accounts.
+For j = 0 To UBound(arrstrNTNames)
+If (UCase(strNTName) = UCase(arrstrNTNames(j))) Then
+‘ User locked out, retrieve badPasswordTime.
+strDN = adoRecordset.Fields(“distinguishedName”).Value
+intBadCount = adoRecordset.Fields(“badPwdCount”).Value
+On Error Resume Next
+Set objDate = adoRecordset.Fields(“badPasswordTime”).Value
+If (Err.Number <> 0) Then
+On Error GoTo 0
+dtmDate = #1/1/1601#
+Else
+On Error GoTo 0
+lngHigh = objDate.HighPart
+lngLow = objDate.LowPart
+If (lngLow < 0) Then
+lngHigh = lngHigh + 1
+End If
+If (lngHigh = 0) And (lngLow = 0) Then
+dtmDate = #1/1/1601#
+Else
+dtmDate = #1/1/1601# + (((lngHigh * (2 ^ 32)) _
++ lngLow)/600000000 – lngBias)/1440
+End If
+End If
+If (objList1.Exists(strDN) = True) Then
+If (dtmDate > objList1.Item(strDN)) Then
+‘ Later badBadPasswordTime found, save info from this DC.
+objList1.Item(strDN) = dtmDate
+objList2.Item(strDN) = intBadCount
+objList3.Item(strDN) = arrstrDCs(k)
+End If
+Else
+‘ First time user found, save info from this DC.
+objList1.Add strDN, dtmDate
+objList2.Add strDN, intBadCount
+objList3.Add strDN, arrstrDCs(k)
+End If
+End If
+Next
+adoRecordset.MoveNext
+Loop
+adoRecordset.Close
+End If
+Next
+
+‘ Output information on each locked out user.
+For Each strUser In objList1.Keys
+Wscript.Echo strUser & ” ; ” & objList1.Item(strUser) & ” ; ” _
+& objList2.Item(strUser) & ” ; ” & objList3.Item(strUser)
+Next
+
+‘ Clean up.
+adoConnection.Close
+
+' This script will enable or disable remote desktop  on a remote system
+' Pat Fiannaca
+
+const HKEY_LOCAL_MACHINE = &H80000002
+strComputer = InputBox("Enter the MACHINE NAME on which you would like to enable or disable Remote Desktop:")
+
+If strComputer = "" Then
+  WScript.Quit
+End If
+
+Set StdOut = WScript.StdOut
+
+On Error Resume Next
+
+Set oReg=GetObject("winmgmts:{impersonationLevel=impersonate}!\\" &_ 
+strComputer & "\root\default:StdRegProv")
+If Err.Number <> 0 Then
+  WScript.Echo "An error has occurred.  You may have mistyped the computer name." 
+  WScript.Quit
+End If
+
+strKeyPath = "SYSTEM\CurrentControlSet\Control\Terminal Server"
+strValueName = "fDenyTSConnections"
+
+oReg.GetDWORDValue HKEY_LOCAL_MACHINE,strKeyPath,strValueName,dwValue
+
+If dwValue = 1 Then
+  prompt = MsgBox ("Remote Desktop is Currently disabled.  Do you want to ENABLE it?", vbYesNo)
+  If prompt = vbYes then
+    dwValue = 0
+    oReg.SetDWORDValue HKEY_LOCAL_MACHINE,strKeyPath,strValueName,dwValue 
+     WScript.Echo "Remote Desktop is now ENABLED on " & strComputer
+    WScript.Quit
+  ElseIf prompt = vbNo then
+    WScript.Echo "Remote Desktop is still DISABLED."
+   Wscript.Quit 
+  End If
+ElseIf dwValue = 0 then
+  prompt = MsgBox ("Remote Desktop is Currently ENABLED.  Do you want to DISABLE it?", vbYesNo)
+  If prompt = vbYes then
+    dwValue = 1
+    oReg.SetDWORDValue HKEY_LOCAL_MACHINE,strKeyPath,strValueName,dwValue
+    WScript.Echo "Remote Desktop is now DISABLED on " & strComputer
+    WScript.Quit
+  ElseIf prompt = vbNo then
+    WScript.Echo "Remote Desktop is still ENABLED." 
+    WScript.Quit
+  End If
+End If
+
+X=MsgBox("Message Description",0+16,"Title") 
+
+1.  You can write any number from 1,2,3 or 4 instead of 0 (before the '+' symbol) 
+Below is the meaning of these numbers:
+
+0 = OK Button, 
+1 = OK / Cancel Button, 
+2 = Abort / Retry / Ignore Button, 
+3 = Yes / No / Cancel Button, 
+4 = Yes / No Button, 
+5 = Retry / Cancel Button
+
+2.  You can write 32 or 48 or 64 instead of 16.
+Below is the meaning of each number:
+
+16 = Critical Icon, 
+32 = Help Icon, 
+48 = Warning Icon, 
+64 = Information Icon,
+
+X=MsgBox(“Error while opening Computer. Do you want to Fix this Error?”,4+64,”Computer”)
+X=MsgBox(“Unable to Fix this Error. Do you want to scan this Computer”,3+48,”Computer”)

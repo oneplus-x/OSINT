@@ -1,0 +1,12 @@
+How to Mirror the EFFs NSA Document Archive
+Unfortunately, the EFF doesn't do a great job of giving us an easy way to archive their entire document store, so I had to hack around a bit to make it work. Here's the steps:
+
+Make a new directory, cd into it: 
+mkdir nsadocs ; cd nsadocs
+Mirror the site: 
+wget -mkxKE -e robots=off https://www.eff.org/nsa-spying/nsadocs
+Get the PDF links: 
+cd www.eff.org/document/ ; cat * | grep -ohe ">https://www.eff.org/files.*<" | sed -e 's/<//' -e 's/>//' > list.txt
+Download the whole list: 
+wget -i list.txt
+Copy out the PDFs and you're golden.

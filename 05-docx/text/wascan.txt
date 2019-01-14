@@ -1,0 +1,10 @@
+sudo python wascan.py --url http://toolst0re.net/
+sudo python wascan.py --url http://toolst0re.net/test.php --brute
+sudo python wascan.py --url http://toolst0re.net/ --scan [0,2,4]
+sudo python wascan.py --url http://toolst0re.net/ --auth "admin:1233"
+sudo python wascan.py --url http://toolst0re.net/index.php?id=1 --scan [1,4]
+sudo python wascan.py --url http://toolst0re.net/index.php --data "id=1" --method POST --scan [1,4]
+sudo python wascan.py --url http://toolst0re.net/index.php?id=1 --scan [1,4] --headers "Host: site.com,..."
+sudo python wascan.py --url http://toolst0re.net/ --scan [0,2,4] --proxy 10.10.10.10:80 --proxy-auth "root:1234"
+
+python wpforce.py -i usr.txt -w pass.txt -u "http://toolst0re.net"

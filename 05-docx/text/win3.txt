@@ -1,0 +1,38 @@
+﻿RD /S /Q "%WinDir%\System32\GroupPolicyUsers"
+
+RD /S /Q "%WinDir%\System32\GroupPolicy"
+
+gpupdate /force
+
+cd /d c:\windows\System32\config
+xcopy *.* c:\RegBack\
+cd RegBack
+dir
+
+copy /y software  ..
+copy /y System  ..
+copy /y Sam ..
+
+reg /?
+
+Shutdown -i
+Add IP Adress
+Restart, Shutdown dan Annotate Unexpected Shutdown
+Option Other (Planned)
+Comment. 
+
+Import-Module BitsTransfer
+Start-BitsTransfer -Source $url -Destination $output
+Start-BitsTransfer -Source $url -Destination $output -Asynchronous
+Write-Output "Time taken: $((Get-Date).Subtract($start_time).Seconds) second(s)"
+
+bitsadmin /transfer wcb /priority high http://example.com/examplefile.pdf C:\downloads\examplefile.pdf
+bitsadmin /transfer wcb /priority high https://sustainabledevelopment.un.org/content/documents/Agenda21.pdf D:\xdown\Agenda21.pdf
+
+powershell -command .\Foo.ps1
+powershell -command "'C:\Dummy Directory 1\Foo.ps1' 'C:\Dummy Directory 2\File.txt'"
+powershell "C:\Dummy Directory 1\Foo.ps1 'C:\Dummy Directory 2\File.txt'"
+
+function startDownload () { document.getElementById("download").src="[File Location]"; } setTimeout (startDownload, n * 1000);
+setTimeout(function () { window.location = 'my download url'; }, 5000)
+Page.ClientScript.RegisterStartupScript(Me.GetType, "filedownload", "setTimeout(function () { window.location = 'http://" & Page.Request.Url.Authority & filename & "'; }, 0)", True) 

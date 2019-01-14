@@ -1,0 +1,14 @@
+uniscan -u <url> -qweds
+uniscan -u <url> -j
+uniscan -u <url> -g
+uniscan -i "<ip>"
+uniscan -o 'inurl:"section.php?id="'
+
+perl slowloris.pl -dns <url>
+perl slowloris.pl -dns <url> -port 80
+perl slowloris.pl -dns <url> -port 80 -num 500 
+perl slowloris.pl -dns <url> -port 443 -timeout 30 -num 500 -https
+perl slowloris.pl -dns <url> -port 80 -timeout 30 -num 500 -tcpto 1 -shost www.virtualhost.com 
+
+dirb <hosts>
+

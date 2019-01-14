@@ -1,0 +1,48 @@
+sudo apt-get update
+sudo apt-get install apche2
+/etc/init.d/apache2 start/stop/restart
+sudo /etc/init.d/mysql start
+sudo mysql_secure_installation
+sudo apt-get -y install php7.0 libapache2-mod-php7.0
+//Restart the server
+systemctl restart apache2
+cd /var/www/html
+touch info.php
+nano info.php
+
+<?php
+
+phpinfo();
+
+?>
+
+save -> control+o +enter
+exit -> control+x+enter
+sudo /etc/init.d/apache2 stop
+sudo /etc/init.d/apache2 restart
+sudo update-rc.d apache2 enable
+sudo /etc/init.d/mysql start
+sudo /etc/init.d/mysql stop
+
+HY000
+sudo service mysql stop
+ps -ef | grep mysql
+cd /var/run
+sudo cp mysqld/ mysqld.bc -rf
+sudo chown mysql:mysql mysqld.bc/
+sudo service mysql stop
+sudo cp mysqld.bc/ mysqld -rf
+sudo chown mysql:mysql mysqld -R
+sudo /usr/sbin/mysqld --skip-grant-tables --skip-networking &
+mysql -u root
+sudo /etc/init.d/mysql restart
+sudo update-rc.d mysql enable
+sudo chmod 755 /var/lib/mysql/mysql
+/opt/lampp/var/mysql/mysql.sock
+/var/run/mysqld/mysqld.sock
+sudo apt-get autoremove linux-headers-3.2.0-37 linux-headers-3.2.0-37-generic
+ps ax | grep mysql
+/opt/lampp/etc/my.cnf file to /etc/mysql/my.cnf
+mysql -u root
+mysql> Update mysql.user set Password=PASSWORD('your_password') where user='root';
+mysql> FLUSH PRIVILEGES;

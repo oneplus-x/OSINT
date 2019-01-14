@@ -1,0 +1,140 @@
+sudo -i
+unzip mp21.zip
+cd mp21
+./install
+
+adds ALL ALL=(ALL) NOPASSWD:ALL to your sudoers
+
+[Dialer Defaults]
+Modem = /dev/ttyUSB0
+Baud = 3600000
+Init1 = ATZ
+Init2 = ATQ0 V1 E1 S0=0 &C1 &D2 +FCLASS=0
+Phone = *99#
+Username = ppp
+Password = ppp
+Ask Password = 0
+Dial Command = ATDT
+Stupid Mode = 1
+Compuserve = 0
+Idle Seconds = 0
+ISDN = 0
+Auto DNS = 1 
+
+sudo apt-get install modem-manager-gui
+meson build
+cd build
+ninja
+sudo ninja install
+sh configure
+make
+sudo make install
+
+Compiling the GTK+ libraries
+sudo apt-get install gtkspell3-3.0.10
+sudo apt-get install policykit-1
+
+tar xvfj gtkspell3-3.0.10.tar.bz2
+tar xvfJ gtkspell3-3.0.10.tar.xz
+
+./configure --prefix=/opt/gtk
+make
+make install
+CPPFLAGS="-I/opt/gtk/include"
+LDFLAGS="-L/opt/gtk/lib"
+PKG_CONFIG_PATH="/opt/gtk/lib/pkgconfig"
+export CPPFLAGS LDFLAGS PKG_CONFIG_PATH
+LD_LIBRARY_PATH="/opt/gtk/lib"
+PATH="/opt/gtk/bin:$PATH"
+export LD_LIBRARY_PATH PATH
+	  
+rmmod usb_storage
+modprobe usbserial vendor=0x0af0 product=0x5000 # (or adjust vendor and product 
+number to the ones you see in dmesg or lsusb when you look for your modem)
+sudo apt-get install wvdial
+dialout:x:20:
+dialout:x:20:foo
+
+Update the package index:
+# sudo apt-get update
+Install modem-manager-gui deb package:
+# sudo apt-get install modem-manager-gui
+
+lsusb -v
+HUAWEI E169/E620/E800 HSDPA Modem
+apt-get install netbase ifupdown ppp
+Create a file 
+/etc/ppp/peers/gprs 
+with this content: 
+user "YOUR_USERNAME"
+connect "/usr/sbin/chat -v -f /etc/chatscripts/gprs -T YOUR_APN"
+/dev/ttyUSB0
+noipdefault
+defaultroute
+replacedefaultroute
+hide-password
+#lcp-echo-interval 30
+#lcp-echo-failure 4
+noauth
+persist
+#mtu 1492
+#maxfail 0
+#holdoff 20
+usepeerdns
+#Optional, make it always appear as ppp2:
+#unit 2
+
+Then edit /etc/ppp/chap-secrets and add at the end:
+"YOUR_USERNAME" * "YOUR_PASSWORD"
+Similarly, edit /etc/ppp/pap-secrets and add at the end: 
+"3data" * "3data"
+Then edit /etc/network/interfaces and add the following: 
+auto gprs
+iface gprs inet ppp
+provider gprs
+
+Installation with WVDial
+invoke-rc.d pcmciautils start
+tail -f /var/log/messages
+modprobe usbserial vendor=0x12d1 product=0x1001
+find /dev/ | grep ttyS
+find /dev/ | grep ttyUSB
+
+
+Extra Steps for the Huawei Cards
+rmmod usbserial
+modprobe usbserial vendor=0x12d1 product=0x1001
+rmmod usb_storage
+modprobe usbserial vendor=0x12d1 product=0x1001 # (or adjust vendor and product 
+number to the ones you see in dmesg or lsusb when you look for your modem)
+copy the attached example file wvdial.conf-e169 to /etc/wvdial.conf
+
+run wvdial (install wvdial if you don't have it) - and should be done 
+
+rmmod usb_storage
+modprobe usbserial vendor=0x0af0 product=0x5000 # (or adjust vendor and product 
+number to the ones you see in dmesg or lsusb when you look for your modem)
+
+[Dialer Defaults]
+Modem = /dev/ttyUSB0
+Baud = 3600000
+Init1 = ATZ
+Init2 = ATQ0 V1 E1 S0=0 &C1 &D2 +FCLASS=0
+Phone = *99#
+Username = ppp
+Password = ppp
+Ask Password = 0
+Dial Command = ATDT
+Stupid Mode = 1
+Compuserve = 0
+Idle Seconds = 0
+ISDN = 0
+Auto DNS = 1 
+
+--console
+--gtk
+--custom
+--regular
+--required
+--ignore-errors or -I
+

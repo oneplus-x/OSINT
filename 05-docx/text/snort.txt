@@ -1,0 +1,32 @@
+snort Data Acquisistion Library (DAQ)
+apt-get install snort
+wget https://snort-org-site.s3.amazonaws.com/production/release_files/files/000/008/743/original/snort-2.9.12.tar.gz?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIXACIED2SPMSC7GA%2F20181018%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20181018T115604Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=453509bebd081d71553bca3d81f562cd1a4ceae387724f737bd00c67e3ba40e7
+
+sudo apt-get install flex bison build-essential checkinstall libpcap-dev libnet1-dev libpcre3-dev libmysqlclient15-dev libnetfilter-queue-dev iptables-dev
+http://ftp.br.debian.org/debian/pool/main/d/dnprogs/libdnet_2.64+b4_i386.deb
+http://ftp.br.debian.org/debian/pool/main/d/dnprogs/libdnet_2.64+b4_amd64.deb
+
+sudo apt-get update
+sudo apt-get install libdnet
+
+
+tar xvfvz libdnet-1.12.tgz
+cd libdnet-1.12
+./configure "CFLAGS=-fPIC"
+make
+
+ln -s /usr/local/lib/libdnet.1.0.1 /usr/lib/libdnet.1
+tar xvfvz daq-2.0.2.tar.gz
+cd daq-2.0.2
+./configure
+make
+
+cp /root/Downloads/ snort-2.9.12.tar.gz /bin/snort
+tar xzvf snort-2.9.12.tar.gz
+cd /bin/snort/snort-2.9.12
+./configure
+make
+snort
+
+char *place
+char *systemcommand

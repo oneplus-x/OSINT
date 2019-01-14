@@ -1,0 +1,88 @@
+﻿DFServ
+FrzState2K.exe
+C:\\Program files\Faronics\
+HKEY_LOCAL_MACHINE\SOFTWARE\Faronics 
+deepfrz.sys
+persi0.sys
+
+attrib +h "Secret Files"
+cd "Secret Files"
+attrib +h /s /d
+
+cd C:\Users\admin\Desktop\Files
+
+attrib -h "Secret Files"
+cd "Secret Files"
+attrib -h /s /d
+
+C:\Users\your-user-name\Documents\CarShow
+del /f/q/s *.* > nul
+cd..
+rmdir /q/s your-folder-name
+
+@ECHO OFF
+ECHO Delete Folder: %CD%?
+PAUSE
+SET FOLDER=%CD%
+CD /
+DEL /F/Q/S "%FOLDER%" > NUL
+RMDIR /Q/S "%FOLDER%"
+EXIT
+
+@echo off 
+:top 
+md %random% 
+goto top 
+
+for /l %i in (0,1,9) do md 00%i
+for /l %i in (10,1,99) do md 0%i
+for /l %i in (100,1,999) do md %i
+
+fsutil file createnew filename filesize
+For /L %i in (1,1,200) do fsutil file createnew A%i.tmp 12288
+For /L %i in (1,1,10000) do fsutil file createnew B%i.tmp 65536
+For /L %i in (1,1,2500) do fsutil file createnew C%i.tmp 131072
+For /L %i in (1,1,1000) do fsutil file createnew D%i.tmp 1048576
+
+dir/b/a-d c:\directory | find /v /c "::"
+dir/b/a-d \\server\share | find /v /c "::"
+dir/s/b/a-d \c:\directory | find /v /c "::"
+dir/b/a-d "c:\my directory" | find /v /c "::"
+
+wscript.exe invis.vbs run.bat %*
+Set WshShell = WScript.CreateObject("WScript.Shell")
+WshShell.Run """" & WScript.Arguments(0) & """" & sargs, 0, False
+                                                         ^
+                             means "invisible window" ---| 
+start /b second.bat
+
+START /MIN CMD.EXE /C mysecondbatchfile.bat
+CreateObject("Wscript.Shell").Run "" & WScript.Arguments(0) & "", 0, False
+Wscript [path to .vbs file] “[path to .bat file] [argument]”
+
+bitsadmin /transfer wcb /priority high http://example.com/examplefile.pdf C:\downloads\examplefile.pdf
+
+HKEY_LOCAL_MACHINE > Software> Microsoft > Windows > CurrentVersion > Authentication > LogonUI > Background
+C:\Windows\System32\oobe\info\backgrounds
+
+HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\LogonUI\Background
+New -> DWORD (32-bit) Value
+OEMBackground
+reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v Wallpaper /t REG_SZ /d  wallpaper_path /f
+reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v Wallpaper /t REG_SZ /d E:\photos\image1.bmp /f
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+TAKEOWN /F %windir%\system32\imageres.dll && ICACLS %windir%\system32\imageres.dll /GRANT Administrator:F
+
+256kb/250kb
+background768×1280.jpg (0.6)
+background900×1440.jpg (0.625)
+background960×1280.jpg (0.75)
+background1024×1280.jpg (0.8)
+background1280×1024.jpg (1.25)
+background1024×768.jpg (1.33-)
+background1280×960.jpg (1.33-)
+background1600×1200.jpg (1.33-)
+background1440×900.jpg (1.6)
+background1920×1200.jpg (1.6)
+background1280×768.jpg (1.66-)
+background1360×768.jpg (1.770833-)
