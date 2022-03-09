@@ -1,7 +1,7 @@
 
 # DDOSIM:  Layer 7 DDoS Simulator v0.2
-# Author:  [Adrian Furtuna](mailto:adif2k8@gmail.com)
 
+Author:  [Adrian Furtuna](mailto:adif2k8@gmail.com)
 
 Installation
 ------------
