@@ -66,8 +66,7 @@ http://www.aircrack-ng.org/doku.php?id=install_aircrack#latest_svn_development_s
 http://www.aircrack-ng.org/doku.php?id=install_aircrack#nightly_build
 
 
-###
-freeradius-wpe
+## freeradius-wpe
 
 The freeradius in the repo most likely does not include the wpe patch. It is best to install from source unless you are using a distro that already applied this very non-standard patch:
 
@@ -82,8 +81,7 @@ The freeradius in the repo most likely does not include the wpe patch. It is bes
 	cd /usr/local/etc/raddb/certs/
 	./bootstrap
 
-###
-Hamster & Ferret
+## Hamster & Ferret
 
 	mkdir /opt/sidejack
 	cd /tmp
@@ -99,8 +97,7 @@ Hamster & Ferret
 	make
 	cp /tmp/ferret/bin/ferret /opt/sidejack/ferret
 
-###
-asleap
+## asleap
 
 Asleap may be available in your package manager, if not, you can install like this:
 
@@ -112,8 +109,7 @@ Asleap may be available in your package manager, if not, you can install like th
 	cp asleap /usr/local/sbin
 	cp genkeys /usr/local/bin
 
-###
-MDK3
+## MDK3
 
 	wget http://homepages.tu-darmstadt.de/~p_larbig/wlan/mdk3-v6.tar.bz2 -O /tmp/mdk3-v6.tar.bz2
 	cd /tmp
@@ -142,12 +138,10 @@ That extra 'a' lets the screen program know you want to work with the inner scre
 
 Yes it is confusing a bit at first but you'll get the hang of it.
 
-
 4. Instructional Videos:
 Instructional videos can be found here -> http://www.youtube.com/user/Brav0Hax
 
 Even if the version is not the same, the base functionality is.
 
-Happy hunting!!
+[Happy hunting!!](mailto:jbrav.hax@gmail.com)
 
-jbrav.hax@gmail.com
