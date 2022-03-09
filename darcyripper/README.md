@@ -1,3 +1,6 @@
 # This folder contains the main Darcy Ripper files.
 ====================================================================================================
-Run "DarcyRipper.jar" to start...
+Run 
+~~~ to start...
+java -jar DarcyRipper.jar
+~~~
