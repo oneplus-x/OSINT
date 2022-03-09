@@ -2,8 +2,8 @@
 #       The Mole v0.2.5
 
 -------------------------------- 
+
 ## About
----------------------------------
 
 The Mole is a command line interface SQL Injection exploitation tool.
 This application is able to exploit both union-based and blind
@@ -19,8 +19,8 @@ So far, The Mole supports Mysql, Mssql and Postgres, but we expect to
 include other DBMSs.
 
 -------------------------------
+
 ## Running
-----------------------------------
 
 In order to execute The Mole, you require only python3 and python3-lxml.
 Once you execute it, a shell prompt will be printed, waiting for
@@ -37,7 +37,6 @@ changed at runtime)
 
 ------------------------------ 
 ## Commands 
---------------------------------
 
 This is a list of all supported commands:
 
@@ -131,6 +130,7 @@ recovered.
 e.g:
 Pretty output might print results like this:
 
+    
 +-----------------------------------------------------+
 | User    | Password                                  |
 +-----------------------------------------------------+
@@ -138,6 +138,7 @@ Pretty output might print results like this:
 | foobar  | *641B2485F1789F7A6BEE986648B83A899D96793B |
 +-----------------------------------------------------+
 
+    
 While plain output will print them like this:
 
 User, Password:
