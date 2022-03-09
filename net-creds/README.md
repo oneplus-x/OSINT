@@ -42,7 +42,7 @@ Read from pcap
 ```python net-creds.py -p pcapfile```
 
 
-####OSX
+### OSX
 
 Credit to [epocs](https://github.com/epocs):
 ```
@@ -59,6 +59,6 @@ brew install iproute2mac
 Then replace line 74 '/sbin/ip' with '/usr/local/bin/ip'.
 
 
-####Thanks
+### Thanks
 * Laurent Gaffie
 * psychomario
