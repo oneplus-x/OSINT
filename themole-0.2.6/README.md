@@ -4,6 +4,7 @@
 
 
 -------------------------------- About ---------------------------------
+
 The Mole is a command line interface SQL Injection exploitation tool.
 This application is able to exploit both union-based and blind
 boolean-based injections.
@@ -18,6 +19,7 @@ So far, The Mole supports Mysql, Mssql and Postgres, but we expect to
 include other DBMSs.
 
 -------------------------------Running----------------------------------
+
 In order to execute The Mole, you require only python3 and python3-lxml.
 Once you execute it, a shell prompt will be printed, waiting for
 commands. You can additionally use some program arguments:
@@ -32,6 +34,7 @@ This is the same as using the "needle" command.
 changed at runtime)
 
 ------------------------------ Commands --------------------------------
+
 This is a list of all supported commands:
 
 - url [URL [PARAM]]: Gets/sets the URL. If PARAM is given then the
@@ -172,9 +175,8 @@ Currently supported types and params:
 
 - exit: Exit The Mole.
 
+------------------------------------------------------------------------
 
-------------------------------------------------------------------------
-------------------------------------------------------------------------
 Developed by Nasel(http://www.nasel.com.ar).
 Authors:
 Matías Fontanini
@@ -183,3 +185,5 @@ Gastón Traberg
 
 Please visit http://sourceforge.net/projects/themole/ to download the
 latest release.
+
+------------------------------------------------------------------------
