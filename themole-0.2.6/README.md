@@ -129,15 +129,11 @@ results. In contrast, plain mode prints each result as soon as it is
 recovered.
 e.g:
 Pretty output might print results like this:
-
     
-+-----------------------------------------------------+
 | User    | Password                                  |
 | :-------| :-----------------------------------------|
 | blabla  | *2B0DDEE3597240B595689260B53D411F515B806D |
 | foobar  | *641B2485F1789F7A6BEE986648B83A899D96793B |
-+-----------------------------------------------------+
-
     
 While plain output will print them like this:
 
