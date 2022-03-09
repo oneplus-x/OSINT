@@ -1,7 +1,9 @@
 ------------------------------------------------------------------------
 #       The Mole v0.2.5
 
--------------------------------- About ---------------------------------
+-------------------------------- 
+## About
+---------------------------------
 
 The Mole is a command line interface SQL Injection exploitation tool.
 This application is able to exploit both union-based and blind
@@ -16,7 +18,9 @@ query, and does not appear otherwise.
 So far, The Mole supports Mysql, Mssql and Postgres, but we expect to
 include other DBMSs.
 
--------------------------------Running----------------------------------
+-------------------------------
+## Running
+----------------------------------
 
 In order to execute The Mole, you require only python3 and python3-lxml.
 Once you execute it, a shell prompt will be printed, waiting for
@@ -31,7 +35,9 @@ This is the same as using the "needle" command.
 -t THREADS: Use THREADS threads while performing queries. (Can't be
 changed at runtime)
 
------------------------------- Commands --------------------------------
+------------------------------ 
+## Commands 
+--------------------------------
 
 This is a list of all supported commands:
 
@@ -181,7 +187,7 @@ Matías Fontanini
 Santiago Alessandri
 Gastón Traberg
 
-Please visit http://sourceforge.net/projects/themole/ to download the
+Please visit [themole](http://sourceforge.net/projects/themole/) to download the
 latest release.
 
 ------------------------------------------------------------------------
