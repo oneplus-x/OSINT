@@ -79,5 +79,5 @@ Manage a metasploit framework database
 _Note_
 Running msfdb init will attempt to write a new database.yml file into your ~/.msf4 directory. You may want to remove or backup any pre-existing .msf4/database.yml file if you have already configured a database there.
 
-If you want to build your own installer package or modify it, see the instructions here: https://github.com/rapid7/metasploit-omnibus
+If you want to build your own installer package or modify it, see the instructions here: [metasploit-omnibus](https://github.com/readloud/metasploit-omnibus.git)
 
