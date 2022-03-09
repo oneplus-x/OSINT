@@ -9,6 +9,8 @@ https://cookiecadger.com
 
 https://github.com/sullivanmatt/CookieCadger
 
+https://github.com/readloud/CookieCadger
+
 ----------------------------------------------
 Requirements
 ----------------------------------------------
