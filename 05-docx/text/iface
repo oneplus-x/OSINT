@@ -1,5 +1,0 @@
-==========================================================
-/etc/network/interfaces
-leafpad /etc/NetworkManager/NetworkManager.conf
-service network-manager restart
-==========================================================

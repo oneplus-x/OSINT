@@ -1,6 +1,0 @@
-url http://www.website.com.php?id=1
-needle xxxx (xxx =use a word found on the page).
-schemas
-tables information_schema
-columns information_schema tableabc
-query dbname tablename colm1,colm2.colm3
