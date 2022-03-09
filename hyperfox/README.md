@@ -3,21 +3,21 @@
 [Hyperfox][1] is a security tool for proxying and recording HTTP and HTTPs
 communications on a LAN.
 
-![Hyperfox diagram](https://hyperfox.org/images/hyperfox-diagram.png)
+![Hyperfox diagram](https://xiam.dev/content/images/2020/04/79090465-6e7eb300-7d0f-11ea-8fc6-df1e6da8a12e.png)
 
 Hyperfox is capable of forging SSL certificates on the fly using a root CA
 certificate and its corresponding key (both provided by the user). If the
 target machine recognizes the root CA as trusted, then HTTPs traffic can be
 successfully intercepted and recorded.
 
-![Hyperfox SSL](https://hyperfox.org/images/hyperfox-diagram.png)
+![Hyperfox SSL](https://4.bp.blogspot.com/-xxyJ0yHxgSY/WjvYpHJpYaI/AAAAAAAAJvg/a-Tqzu9gObEWStBqFdPuBAL4sCOoMtrSACLcBGAs/s1600/hyperfox_1.png)
 
 This is the development repository, check out the [https://hyperfox.org][1]
 site for usage information.
 
 ## Getting Hyperfox
 
-See the [download](https://hyperfox.org/download) page for binary builds and
+See the [download](https://github.com/malfunkt/hyperfox) page for binary builds and
 compilation instructions.
 
 ## A common example: hyperfox with arpspoof on Linux
