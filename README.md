@@ -1,2 +1,2 @@
 # OSINT
-Just Usefull Personal Documentation
+## Personal Documentation
