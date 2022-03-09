@@ -1,6 +1,6 @@
 
 # DDOSIM:  Layer 7 DDoS Simulator v0.2
-# Author:  Adrian Furtuna  <adif2k8@gmail.com>
+# Author:  [Adrian Furtuna](mailto:adif2k8@gmail.com)
 
 
 Installation
@@ -27,6 +27,5 @@ Usage
     [-v]             Verbose mode (slower)
     [-h]             Print this help message
 
-Documentation
+[Documentation](http://stormsecurity.wordpress.com/2009/03/03/application-layer-ddos-simulator/)
 -------------
-http://stormsecurity.wordpress.com/2009/03/03/application-layer-ddos-simulator/
