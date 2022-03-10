@@ -1,4 +1,6 @@
-# dnsteal
+# dnsteal 
+
+* REBUILD compatible with Python3
 
 This is a fake DNS server that allows you to stealthily extract files from a victim machine through DNS requests. 
 
