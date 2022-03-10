@@ -1,11 +1,4 @@
-######   ##    ####  #   #        ####  #####  ###### #####   ####
-#       #  #  #       # #        #    # #    # #      #    # # 
-#####  #    #  ####    #   ##### #      #    # #####  #    #  ####
-#      ######      #   #         #      #####  #      #    #      #
-#      #    # #    #   #         #    # #   #  #      #    # #    #
-###### #    #  ####    #          ####  #    # ###### #####   ####
-
-v3.8-dev Garden of New Jersey
+# v3.8-dev Garden of New Jersey
 
 Purpose:
 This script leverages tools for stealing credentials during a pen test.
