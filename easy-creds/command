@@ -1,0 +1,2 @@
+curl -L -s $p | tr ' ' '\n' |sed $'s/[^[:print:]\t]//g' |sed "s/[^a-z|0-9]//g;" | sort -u | pw-inspector -m 4 -M 20
+curl -L -s https://moz.com/top500 | grep .com | sed 's/.*="\(.*\)"/\1/' | awk '{print $1}' | grep .com | grep -vi moz > dump/url.txt

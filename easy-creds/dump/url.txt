@@ -1,0 +1,4 @@
+/community/q
+js-community-profile>
+/community/q/user/
+/community/q/my-questions
