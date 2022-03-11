@@ -1,0 +1,48 @@
+digraph steps{
+	node [
+		shape=box,
+		fontname="Terminus",
+		fontsize=12,
+		height="0.1",
+		margin="0.05,0.05",
+		style="filled"
+	];
+	
+	{
+		node [color=red, fillcolor="#FFD0D0"];
+
+		raw_text;
+		relations_dict [label="relations.json"];
+	}
+
+	{
+		node [color="#AA8800", fillcolor="#FFF0C0"];
+
+		sentences;
+		tokens;
+		tagged_tokens;
+		tagged_sentences;
+		ne_chunks;
+		raw_named_entities;
+	}
+
+	{
+		node [color="#00AA00", fillcolor="#D0FFD0"];
+
+		sentiment;
+		refined_named_entities;
+		raw_relstrings;
+	}
+
+	raw_text -> tokens;
+	raw_text -> sentences;
+	tokens -> tagged_tokens;
+	tokens -> sentiment;
+	tagged_tokens -> ne_chunks;
+	tagged_tokens -> tagged_sentences;
+	tagged_sentences -> ne_chunks;
+	ne_chunks -> raw_named_entities;
+	raw_named_entities -> refined_named_entities;
+	ne_chunks -> raw_relstrings;
+	relations_dict -> raw_relstrings;
+}
