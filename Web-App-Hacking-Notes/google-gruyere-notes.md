@@ -1,3 +1,0 @@
-
-user: user
-pass: password
