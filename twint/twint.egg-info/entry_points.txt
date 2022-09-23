@@ -1,0 +1,2 @@
+[console_scripts]
+twint = twint.cli:run_as_command
