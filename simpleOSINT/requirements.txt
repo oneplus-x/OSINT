@@ -1,0 +1,7 @@
+cfscrape
+gpsphoto
+piexif
+art
+terminaltables
+colored
+msedge-selenium-tools
