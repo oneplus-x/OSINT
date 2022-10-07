@@ -1,8 +1,0 @@
-## This repo contains Meterpreter scripts that I'm working on or pices of code that I'm playing with for possible addition in to the Metasploit SVN
-
-### Installation
-
-Copy the plugin you wish to use in to your .msf4/plugin folder in your home folder for your current user. To test that the plugin was properly install you can use the **load** command to load the plugin.
-╰─$ cp -r auxiliary ~/.msf4/modules
-run
-╰─$ msfconsole 
