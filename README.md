@@ -9,4 +9,4 @@ git clone https://github.com/readloud/OSINT.git
 ~~~
 
 Like traditional investigations, OSINT investigations involve finding and locating evidence to support your mission goals. 
-During an OSINT investigation ([read the book of secret-knowledge](https://github.com/readloud/OSINT/wiki)], analysts will search for crucial data related to their operation in open web spaces, such as online news outlets or social media platforms.
+During an OSINT investigation ([the book of secret-knowledge](https://github.com/readloud/OSINT/wiki)], analysts will search for crucial data related to their operation in open web spaces, such as online news outlets or social media platforms.
