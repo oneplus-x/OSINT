@@ -1,6 +1,6 @@
 # OSINT investigation (tools)
 
-[Personal Documentation](https://github.com/readloud/readloud/wiki)
+This is [Personal Documentation](https://github.com/readloud/readloud/wiki) of [OSINT_Team](/OSINT_Team_Links/README.md)
 
 Like traditional investigations, OSINT investigations involve finding and locating evidence to support your mission goals. 
 During an OSINT investigation, analysts will search for crucial data related to their operation in open web spaces, such as online news outlets or social media platforms.
